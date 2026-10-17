@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.*
+*.local
+.firebase/
+__pycache__/
+eval/out/
+tools/cache/
+.claude/
+eval/*.log

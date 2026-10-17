@@ -1,0 +1,39 @@
+{
+  "headline": [
+    {"region": "Japan", "year": 2025, "label": "Special-fraud losses", "value": "¥142.3B", "note": "+98% YoY; fake-police scams ¥100.5B; people 65+ bore 59.2% of losses", "url": "https://www.nippon.com/en/japan-data/h02795/fake-police-scams-double-in-japan-as-financial-losses-from-fraud-soar.html"},
+    {"region": "India", "year": 2024, "label": "'Digital arrest' scam losses", "value": "₹1,935 crore", "note": "across 1.23 lakh complaints", "url": "https://inc42.com/?p=504907"},
+    {"region": "India", "year": 2025, "label": "Total cyber-fraud losses", "value": "₹22,495 crore", "note": "28.15 lakh cases; investment scams >75% of losses (MHA, via ThePrint)", "url": "https://theprint.in/india/cybercrime-saw-24-spike-in-2025-indians-lost-rs-22495-crore-mainly-in-investment-scams/2859930/"},
+    {"region": "Australia", "year": 2025, "label": "Reported scam losses", "value": "A$2.18B", "note": "People 65+ are 17.1% of the population but 26.5% of reported losses", "url": "https://www.nasc.gov.au/system/files/targeting-scams-report-2025.pdf"},
+    {"region": "Singapore", "year": 2025, "label": "Scam losses", "value": "S$913.1M", "note": "37,308 cases; only ~S$140.5M recovered; 85.2% of victims were under 65", "url": "https://www.police.gov.sg/media-hub/police-life/2026/02/scams-and-cybercrime-fell-by-almost-a-quarter-in-2025"}
+  ],
+  "ages": [
+    {"group": "senior", "label": "Seniors 65+", "stat": "Japan: 59.2% of special-fraud losses. Australia: 26.5% of losses vs 17.1% of population.", "scams": "Digital arrest, bank/KYC, relative in trouble, romance"},
+    {"group": "adult", "label": "Working adults", "stat": "Singapore: 85.2% of 2025 victims were under 65.", "scams": "Investment, courier/parcel, e-commerce"},
+    {"group": "young_adult", "label": "Young adults 18-29", "stat": "Singapore: ages 20-29 most affected by e-commerce, phishing and job scams; job scams cost S$123.5M (13.5% of losses).", "scams": "Job/task, fake seller, investment, loan apps"},
+    {"group": "teen", "label": "Teens 13-17", "stat": "Australia (AIC 2025, n=1,953): 11.3% of adolescents experienced sexual extortion; over half before age 16.", "scams": "Sextortion, gaming giveaways, account takeover"}
+  ],
+  "complaint_mix_india_2025": [
+    {"type": "Investment", "pct": 36}, {"type": "Credit card", "pct": 27}, {"type": "Sextortion", "pct": 19}, {"type": "E-commerce", "pct": 10}, {"type": "Digital arrest", "pct": 6}
+  ],
+  "complaint_mix_source": "Superkalam summary of 2025 complaint categories (secondary source; treat as indicative)",
+  "avoidable": {
+    "conservative_pct": 12,
+    "conservative_basis": "NAB (Australia): real-time in-app scam prompts led customers to abandon 12% of flagged payments.",
+    "conservative_url": "https://www.nab.com.au/news/personal-finance/scam-strategy-update",
+    "ceiling_pct": 94,
+    "ceiling_basis": "Nottingham CEDEX lab experiment: confirm-the-action friction cut fraudulent payments by up to 94% (warnings alone: 18%). Lab setting, not real-world.",
+    "ceiling_url": "https://www.nottingham.ac.uk/cedex/documents/papers/cedex-discussion-paper-2023-08.pdf",
+    "base_pools": [
+      {"id": "jp_police", "label": "Japan: fake-police scam losses (2025)", "amount": 100.5, "unit": "¥ billion", "currency": "JPY"},
+      {"id": "in_da", "label": "India: digital-arrest losses (2024)", "amount": 1935, "unit": "₹ crore", "currency": "INR"},
+      {"id": "in_total", "label": "India: all cyber-fraud losses (2025)", "amount": 22495, "unit": "₹ crore", "currency": "INR"},
+      {"id": "au_senior", "label": "Australia: losses of people 65+ (2025)", "amount": 88.8, "unit": "A$ million", "currency": "AUD"}
+    ]
+  },
+  "speed_matters": {
+    "text": "India's 1930 / CFCFRMS rapid-reporting system had helped save ~₹8,189 crore by Dec 2025 (₹11,158 crore by Jun 2026). Singapore recovered only ~15% of 2025 losses after the fact, so prevention beats recovery.",
+    "url": "https://www.dynamitenews.com/national/cyber-frauds-mount-to-rs22495-crore-in-2025-over-rs8000-crore-saved-through-rapid-response-system/amp"
+  },
+  "precedent": "More than 280 Japanese financial institutions lowered elderly customers' ATM limits at police request.",
+  "precedent_url": "https://www.malaymail.com/news/malaysia/2025/09/06/how-malaysia-can-fight-scams-japan-shows-the-way-with-atm-limits-for-older-people/189994"
+}

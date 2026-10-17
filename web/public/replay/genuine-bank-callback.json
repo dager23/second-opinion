@@ -1,0 +1,27 @@
+[
+ {
+  "t": 0,
+  "type": "transcript",
+  "text": "Caller: Good morning Mr. Iyer, this is Priya from your bank's customer service. You had requested a callback about your debit card replacement.\n"
+ },
+ {
+  "t": 6184,
+  "type": "transcript",
+  "text": "You: Yes, I did. My card was damaged.\n"
+ },
+ {
+  "t": 8152,
+  "type": "transcript",
+  "text": "Caller: Your new card has been dispatched and will arrive in five to seven working days. For your safety, we will never ask for your PIN or OTP on a call. Is there anything else I can help you with?\n"
+ },
+ {
+  "t": 19115,
+  "type": "transcript",
+  "text": "You: No, that's all. Thank you.\n"
+ },
+ {
+  "t": 20520,
+  "type": "transcript",
+  "text": "Caller: You're welcome. Have a nice day.\n"
+ }
+]

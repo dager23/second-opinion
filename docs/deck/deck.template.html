@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Second Opinion: AI Builder Cup 2026</title>
+<style>
+  @page { size: 13.333in 7.5in; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Segoe UI', Arial, sans-serif; color: #14213d; }
+  .slide { width: 13.333in; height: 7.5in; padding: 0.6in 0.75in; page-break-after: always; position: relative; background: #f7f5ef; overflow: hidden; }
+  .slide.dark { background: #14213d; color: #fff; }
+  h1 { font-size: 46px; margin: 0 0 14px; letter-spacing: -0.5px; }
+  h2 { font-size: 36px; margin: 0 0 18px; }
+  p, li { font-size: 22px; line-height: 1.4; }
+  .sub { font-size: 24px; opacity: 0.8; }
+  .grid { display: grid; gap: 16px; }
+  .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: 1fr 1fr 1fr; } .g4 { grid-template-columns: repeat(4, 1fr); }
+  .card { background: #fff; border: 1px solid #e3dfd2; border-radius: 16px; padding: 18px 20px; }
+  .dark .card { background: #1f2f55; border-color: #2d4072; }
+  .big { font-size: 42px; font-weight: 800; }
+  .tag { display: inline-block; background: #1d4ed8; color: #fff; border-radius: 999px; padding: 2px 14px; font-size: 16px; font-weight: 600; }
+  .small { font-size: 16px; opacity: 0.75; }
+  .foot { position: absolute; bottom: 0.3in; left: 0.75in; font-size: 14px; opacity: 0.55; }
+  table { border-collapse: collapse; width: 100%; font-size: 18px; } td, th { border-bottom: 1px solid #ddd; padding: 6px 8px; text-align: left; }
+  code { background: #eef2ff; padding: 1px 6px; border-radius: 6px; font-size: 0.9em; }
+  .flow { display: flex; align-items: stretch; gap: 10px; } .flow .card { flex: 1; font-size: 18px; } .arrow { align-self: center; font-size: 30px; }
+</style>
+</head>
+<body>
+
+<section class="slide dark">
+  <span class="tag">AI Builder Cup 2026 · Sustainability &amp; Social Impact · Social Good</span>
+  <h1 style="font-size:84px;margin-top:1.3in">Second Opinion</h1>
+  <p class="sub" style="font-size:34px">A live scam guardian for the people we love.</p>
+  <p class="sub">Gemini listens to a suspicious call, warns in English or Hindi, brings in family, and drafts the complaint, before the money moves.</p>
+  <p class="foot">Live app: {{APP_URL}} · Code: {{REPO_URL}}</p>
+</section>
+
+<section class="slide">
+  <h2>The problem: scams persuade, they don’t hack</h2>
+  <div class="grid g3">
+    <div class="card"><div class="big">¥142.3B</div><b>Japan 2025</b> special-fraud losses (+98%); fake-police ¥100.5B; people 65+ bore 59.2%.</div>
+    <div class="card"><div class="big">₹1,935 cr</div><b>India 2024</b> “digital arrest” losses across 1.23 lakh complaints. Total cyber-fraud 2025: ₹22,495 cr.</div>
+    <div class="card"><div class="big">A$2.18B</div><b>Australia 2025</b>. People 65+: 17.1% of the population, 26.5% of losses.</div>
+  </div>
+  <p style="margin-top:22px">Most money leaves through payments the victim <b>authorises under pressure on a call</b>. Banks watch transactions, but nobody listens to the call. Singapore recovered only ~15% of 2025 losses after the fact: <b>prevention beats recovery</b>.</p>
+  <p class="foot">Sources: Nippon.com, Inc42, MHA/ThePrint, NASC, Singapore Police Force (links in the app’s Impact page)</p>
+</section>
+
+<section class="slide">
+  <h2>Who we protect: seniors first, then everyone</h2>
+  <div class="grid g4">
+    <div class="card" style="border:2px solid #1d4ed8"><span class="tag">core</span><h3>Seniors 65+</h3><p style="font-size:18px">Digital arrest, fake bank/KYC, relative in trouble, romance.</p></div>
+    <div class="card"><h3>Working adults</h3><p style="font-size:18px">Investment, courier/parcel, e-commerce. 85.2% of Singapore’s 2025 victims were under 65.</p></div>
+    <div class="card"><h3>Young adults</h3><p style="font-size:18px">Job/task scams, fake sellers, loan apps. Job scams: S$123.5M in Singapore.</p></div>
+    <div class="card"><h3>Teens</h3><p style="font-size:18px">Sextortion and gaming giveaways. 11.3% of Australian adolescents report sexual extortion.</p></div>
+  </div>
+  <p style="margin-top:22px">One engine detects the <b>coercion state</b> of a conversation, so the same product extends to every age group by changing the audience profile and who the guardian is.</p>
+</section>
+
+<section class="slide">
+  <h2>How it works</h2>
+  <div class="flow">
+    <div class="card"><b>1. Listen</b><br/>Speakerphone, Google Meet tab, or demo call. 16 kHz audio from the browser.</div><div class="arrow">→</div>
+    <div class="card"><b>2. Understand</b><br/><code>gemini-3.8-live</code> transcribes and reasons about coercion signals. Calls <code>raise_alert</code> with signals + exact quotes.</div><div class="arrow">→</div>
+    <div class="card"><b>3. Warn</b><br/>Calm whisper in the user’s language. Big “Hang up &amp; call family” button.</div><div class="arrow">→</div>
+    <div class="card"><b>4. Act</b><br/>Case Agent (Gemini Flash function calling): official advisory, guardian alert, cool-off hold, complaint draft for 1930.</div>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><b>Frame Check</b><br/>Meet video stills → visual cues (uniform, fake warrant). Cues, never a deepfake verdict.</div>
+    <div class="card"><b>Scam Check</b><br/>Screenshot, audio recording, pasted text or a question → structured verdict, red flags, safe reply, follow-up chat.</div>
+    <div class="card"><b>Guardian console</b><br/>Family phone gets realtime alerts and approves the hold.</div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <h2>Demo flow</h2>
+  <ol>
+    <li>A teammate plays a fake CBI officer on <b>Google Meet</b>: parcel, money laundering, “stay on video, tell no one”, “transfer to the RBI account”.</li>
+    <li>Signals stack up with quotes; meter → <b>STOP</b>; Hindi whisper; video cue chip.</li>
+    <li>Guardian’s phone buzzes → <b>approves the hold</b> → complaint draft appears.</li>
+    <li>A genuine bank callback triggers <b>nothing</b>.</li>
+    <li>Scam Check: WhatsApp task-job screenshot, a voice note, and a Teen-mode sextortion DM.</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Architecture (all on Firebase + Gemini)</h2>
+  <div class="grid g2">
+    <div class="card"><b>Frontend</b><br/>React + Vite + TypeScript on <b>Firebase Hosting</b>. AudioWorklet → 16 kHz PCM.</div>
+    <div class="card"><b>Gemini via Firebase AI Logic</b><br/><code>gemini-3.8-live</code> (Live API, input transcription, tool calling, context compression) · <code>gemini-3.8-flash</code> (Case Agent function calling, Scam Check, Frame Check, structured JSON) · <code>gemini-3.5-flash-lite</code> (chunked fallback) · multi-speaker <b>Gemini TTS</b> for demo calls</div>
+    <div class="card"><b>State</b><br/><b>Firestore</b> (sessions, alerts, hold, report) · <b>Anonymous Auth</b> · <b>App Check</b> (reCAPTCHA v3)</div>
+    <div class="card"><b>Grounding &amp; safety</b><br/>Curated official-advisory library with links (I4C, RBI, Sanchar Saathi) · quoted evidence · guardian approval · no stored audio · recorded-replay fallback</div>
+  </div>
+  <p class="small" style="margin-top:14px">Designed for the free Spark plan; the scale path moves the agent to Cloud Run + ADK (see roadmap).</p>
+</section>
+
+<section class="slide">
+  <h2>Evaluation: scam <i>and</i> genuine calls</h2>
+  <div class="grid g3">
+    <div class="card"><div class="big">{{DET}}</div>of {{N_SCAM}} scripted scam calls detected (warning or stop)</div>
+    <div class="card"><div class="big">{{FA}}</div>false alarms on {{N_GEN}} genuine calls</div>
+    <div class="card"><div class="big">{{MED}}</div>median estimated seconds to first warning</div>
+  </div>
+  <p style="margin-top:18px">English, Hindi, Hinglish and Japanese scripts, run through the <b>same classifier prompt the app ships</b> (<code>shared/prompts.json</code>). Scripted, small-scale and indicative, not a field trial.</p>
+  <p class="small">Model: {{MODEL}}. Full table: eval/results.md in the repo.</p>
+</section>
+
+<section class="slide">
+  <h2>How much could be avoided?</h2>
+  <div class="grid g2">
+    <div class="card"><div class="big">12%</div>Conservative: NAB (Australia) real-time in-app scam prompts led customers to abandon 12% of flagged payments.</div>
+    <div class="card"><div class="big">up to 94%</div>Ceiling: a Nottingham lab experiment found confirm-the-action friction cut fraudulent payments by up to 94% (warnings alone: 18%).</div>
+  </div>
+  <p style="margin-top:18px">Applied to published loss pools (illustrative, not a forecast): <b>12% of Japan’s 2025 fake-police losses ≈ ¥12B a year</b>; 12% of India’s 2024 digital-arrest losses ≈ <b>₹230 crore a year</b>. India’s 1930 rapid-reporting system already helped save ~₹8,189 crore by Dec 2025, showing speed matters. Our instant complaint draft feeds that channel.</p>
+</section>
+
+<section class="slide">
+  <h2>Judging criteria, one by one</h2>
+  <table>
+    <tr><th>Criterion</th><th>How Second Opinion answers it</th></tr>
+    <tr><td><b>Technical merit &amp; Gen AI (40%)</b></td><td>Live API streaming with tool calling and context compression; Flash function-calling agent; multimodal Scam Check; structured outputs; chunked fallback; evaluation harness on genuine + scam calls.</td></tr>
+    <tr><td><b>Problem alignment &amp; impact (25%)</b></td><td>Targets the largest, fastest-growing loss category for the most-targeted group; sourced stats; avoidable-loss model; feeds 1930 reporting.</td></tr>
+    <tr><td><b>Innovation &amp; creativity (25%)</b></td><td>Coercion-state reasoning (not keyword matching) in Hindi/English; Meet video-cue check; guardian-approved cool-off hold; auditable quotes + official advisories.</td></tr>
+    <tr><td><b>UX &amp; solution design (10%)</b></td><td>One calm screen for seniors: big type, whisper warning, one button; separate guardian phone view; works with no login; accessible, responsive.</td></tr>
+  </table>
+</section>
+
+<section class="slide">
+  <h2>Roadmap: from one grandparent to every age group</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Teen Shield</h3><p style="font-size:18px">Sextortion, gaming and giveaway scams; risk-only alerts to a trusted adult.</p></div>
+    <div class="card"><h3>Young adults &amp; merchants</h3><p style="font-size:18px">Job/task scams, fake sellers, loan apps, fake payment screenshots.</p></div>
+    <div class="card"><h3>Bank &amp; telco partners</h3><p style="font-size:18px">Real cool-off API, call-risk metadata, auto-reporting to Sanchar Saathi / 1930.</p></div>
+    <div class="card"><h3>On-device Gemma 4</h3><p style="font-size:18px">Private offline detection, Android call screening, WhatsApp bot, browser extension.</p></div>
+    <div class="card"><h3>Cloud Run + ADK</h3><p style="font-size:18px">Server-side multi-agent case handling, Agent Platform memory, observability.</p></div>
+    <div class="card"><h3>More JAPAC languages</h3><p style="font-size:18px">Gemini Live Translate for Tamil, Bahasa, Japanese, Korean and more.</p></div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <h2>Safety, privacy &amp; feasibility</h2>
+  <ul>
+    <li>No raw audio or video stored: only risk level, signal names, short quotes and the complaint draft.</li>
+    <li>Guardian approves any hold; nothing is filed automatically; we show the exact words behind every alert.</li>
+    <li>Free-tier prototype: production would use paid-tier or Vertex AI data controls, bank/telco partnerships and consent flows.</li>
+    <li>Runs on Firebase’s free plan today; cost per protected call is a few minutes of Live audio.</li>
+  </ul>
+  <p class="foot">Team: {{TEAM}} · {{APP_URL}} · {{REPO_URL}}</p>
+</section>
+
+</body>
+</html>

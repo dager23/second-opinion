@@ -1,0 +1,102 @@
+{
+  "digital_arrest": {
+    "title": "No such thing as 'digital arrest'",
+    "text": "Indian law has no concept of 'digital arrest'. Police, CBI, ED, courts and customs never arrest anyone over a phone or video call, never ask you to stay on video, and never ask you to transfer money to a 'safe' or 'verification' account. The Ministry of Home Affairs and I4C have issued public advisories on this.",
+    "action": "Hang up. Do not share OTPs, install apps or transfer money. Call 1930 or report at cybercrime.gov.in.",
+    "sources": [
+      {"name": "Indian Cyber Crime Coordination Centre (I4C)", "url": "https://i4c.mha.gov.in/"},
+      {"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}
+    ]
+  },
+  "bank_kyc_otp": {
+    "title": "Banks never ask for OTP, PIN or CVV",
+    "text": "RBI repeatedly warns that banks and the RBI never ask for your OTP, PIN, CVV, passwords or ask you to install remote-access apps. KYC updates are done at a branch or through the bank's official app, not by a caller or link.",
+    "action": "Do not share any code. Hang up and call the number printed on the back of your card. Report fraud at 1930 immediately if money moved.",
+    "sources": [
+      {"name": "RBI Kehta Hai", "url": "https://www.rbi.org.in/commonman/"},
+      {"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}
+    ]
+  },
+  "relative_in_trouble": {
+    "title": "Verify before you send money to a 'relative in trouble'",
+    "text": "Scammers impersonate grandchildren, children or police to claim a relative is in an accident or arrested and demand urgent money, often asking you to keep it secret. AI voice cloning can copy a familiar voice.",
+    "action": "Hang up and call the relative on their known number, or another family member. Agree a family safe word in advance.",
+    "sources": [
+      {"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}
+    ]
+  },
+  "investment": {
+    "title": "Guaranteed returns are a red flag",
+    "text": "Fake trading apps and 'VIP investment groups' promise guaranteed, high returns and let you withdraw small amounts early before locking larger deposits. Investment scams are the largest share of reported cyber-fraud losses in India.",
+    "action": "Do not deposit more. Check the platform is SEBI-registered. Report at 1930 or cybercrime.gov.in.",
+    "sources": [
+      {"name": "SEBI intermediaries check", "url": "https://www.sebi.gov.in/sebiweb/other/OtherAction.do?doRecognisedFpi=yes&intmId=13"},
+      {"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}
+    ]
+  },
+  "task_job": {
+    "title": "Real jobs do not ask you to pay or to 'like' videos for money",
+    "text": "Task scams pay small amounts for liking videos or rating products, then demand bigger 'deposits' to unlock 'bigger tasks'. Fake job offers are also used to lure people abroad into scam compounds.",
+    "action": "Stop depositing money. Do not travel on an offer you cannot verify. Report at 1930 or cybercrime.gov.in.",
+    "sources": [
+      {"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}
+    ]
+  },
+  "sextortion": {
+    "title": "Sextortion: it is not your fault, do not pay",
+    "text": "Scammers pose as a friendly peer, obtain intimate images or record a video call, then threaten to share them unless you pay. Paying rarely stops it. Platforms and police can help, and it is a crime committed against you.",
+    "action": "Stop replying, do not pay, keep screenshots, block and report the account, and tell a trusted adult. Report at 1930 / cybercrime.gov.in; in Australia report to eSafety.",
+    "sources": [
+      {"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"},
+      {"name": "eSafety Commissioner (Australia)", "url": "https://www.esafety.gov.au/"}
+    ]
+  },
+  "romance": {
+    "title": "Romance scams build trust before asking for money",
+    "text": "Fake online partners build a relationship, then invent emergencies or investments and ask for money. They avoid in-person meetings and live video.",
+    "action": "Do not send money to someone you have not met. Reverse-search their photos and talk to a trusted person. Report at 1930.",
+    "sources": [{"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}]
+  },
+  "courier_parcel": {
+    "title": "Courier / customs 'parcel with drugs' calls are scams",
+    "text": "Callers claim a parcel in your name contains illegal items and connect you to a fake officer. Real customs and couriers do not demand payment over a call.",
+    "action": "Hang up. Verify via the courier's official site. Report at 1930.",
+    "sources": [{"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}]
+  },
+  "ecommerce_fake_seller": {
+    "title": "Pay only through the platform's protected checkout",
+    "text": "Fake sellers on marketplaces and social media ask for advance UPI payments or push you off-platform, then disappear.",
+    "action": "Never pay in advance outside the platform. Never approve UPI 'collect' requests to receive money.",
+    "sources": [{"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}]
+  },
+  "phishing_link": {
+    "title": "Do not click unexpected links or install apps from messages",
+    "text": "Fake bank, government and delivery messages contain links to look-alike sites or APKs that steal credentials or take control of your phone.",
+    "action": "Do not click. Report the number or message with Sanchar Saathi Chakshu (sancharsaathi.gov.in).",
+    "sources": [{"name": "Sanchar Saathi", "url": "https://sancharsaathi.gov.in/"}]
+  },
+  "gaming_giveaway": {
+    "title": "Free in-game currency giveaways are scams",
+    "text": "Fake giveaways ask for account logins or payments for free skins or currency and can take over accounts.",
+    "action": "Never share passwords or codes. Enable two-factor authentication and tell a trusted adult.",
+    "sources": [{"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}]
+  },
+  "loan_app": {
+    "title": "Illegal loan apps harass borrowers",
+    "text": "Illegal instant-loan apps take contact access, then harass or shame borrowers with threats and morphed images.",
+    "action": "Do not pay extra. Check RBI's list of digital lending apps and report to 1930.",
+    "sources": [{"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}]
+  },
+  "tax_refund": {
+    "title": "Tax and government benefit refunds never need a payment to claim",
+    "text": "Fake refund messages ask you to click a link or pay a fee to receive a refund or benefit. Use only official portals.",
+    "action": "Check the official portal directly and never share OTPs. Report at 1930.",
+    "sources": [{"name": "National Cyber Crime Reporting Portal", "url": "https://cybercrime.gov.in/"}]
+  },
+  "none": {
+    "title": "No scam pattern found",
+    "text": "No clear scam pattern. Stay cautious: never share OTPs or PINs and verify through official channels.",
+    "action": "If unsure, ask a family member or call 1930.",
+    "sources": []
+  }
+}

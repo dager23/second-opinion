@@ -1,0 +1,6 @@
+{
+  "IN": {"country": "India", "name": "National Cyber Crime Helpline", "phone": "1930", "web": "https://cybercrime.gov.in/", "extra": "Sanchar Saathi Chakshu: https://sancharsaathi.gov.in/"},
+  "JP": {"country": "Japan", "name": "Police consultation hotline", "phone": "#9110", "web": "https://www.npa.go.jp/", "extra": ""},
+  "SG": {"country": "Singapore", "name": "ScamShield helpline", "phone": "1799", "web": "https://www.scamshield.gov.sg/", "extra": ""},
+  "AU": {"country": "Australia", "name": "Scamwatch / National Anti-Scam Centre", "phone": "", "web": "https://www.scamwatch.gov.au/", "extra": "eSafety for sextortion: https://www.esafety.gov.au/"}
+}

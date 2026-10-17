@@ -1,0 +1,130 @@
+[
+ {
+  "t": 0,
+  "type": "transcript",
+  "text": "Caller: नमस्ते, मैं सीबीआई अधिकारी राकेश शर्मा बोल रहा हूँ। क्या आप सुशीला जी बोल रही हैं?\n"
+ },
+ {
+  "t": 5279,
+  "type": "transcript",
+  "text": "You: हाँ, मैं सुशीला बोल रही हूँ। क्या हुआ?\n"
+ },
+ {
+  "t": 5879,
+  "type": "alert",
+  "alert": {
+   "level": "warning",
+   "scam_type": "Digital Arrest Scam",
+   "signals": [
+    {
+     "id": "authority_claim",
+     "quote": "नमस्ते, मैं सीबीआई अधिकारी राकेश शर्मा बोल रहा हूँ।"
+    }
+   ],
+   "whisper_en": "This is likely a scam. Real CBI officers do not call to investigate people over the phone.",
+   "whisper_hi": "यह धोखाधड़ी हो सकती है। असली सीबीआई अधिकारी फोन पर जांच नहीं करते हैं।"
+  }
+ },
+ {
+  "t": 6479,
+  "type": "step",
+  "step": {
+   "tool": "check_official_advisory",
+   "detail": "Digital Arrest Scam"
+  }
+ },
+ {
+  "t": 7379,
+  "type": "step",
+  "step": {
+   "tool": "notify_guardian",
+   "detail": "A caller falsely claiming to be a CBI officer contacted Sushila. No personal details or money have been shared, so please stay calm and do not answer further calls from this number."
+  }
+ },
+ {
+  "t": 7919,
+  "type": "transcript",
+  "text": "Caller: आपके आधार नंबर से एक पार्सल पकड़ा गया है जिसमें ड्रग्स मिले हैं। आपके नाम पर मनी लॉन्ड्रिंग का केस दर्ज हुआ है।\n"
+ },
+ {
+  "t": 8279,
+  "type": "step",
+  "step": {
+   "tool": "request_cooloff_hold",
+   "detail": "Caller requested a money transfer / OTP"
+  }
+ },
+ {
+  "t": 9479,
+  "type": "step",
+  "step": {
+   "tool": "draft_report",
+   "detail": "Complaint draft for 1930 / cybercrime.gov.in"
+  }
+ },
+ {
+  "t": 9679,
+  "type": "report",
+  "report": {
+   "category": "Digital Arrest Scam",
+   "summary": "An unknown caller contacted the user posing as a CBI officer named Rakesh Sharma and asked to speak with Sushila.",
+   "caller_claims": "The caller claimed to be CBI officer Rakesh Sharma.",
+   "timeline": [
+    "Caller introduced himself as CBI officer Rakesh Sharma.",
+    "Caller asked to confirm if the recipient is Sushila."
+   ],
+   "quotes": [
+    "नमस्ते, मैं सीबीआई अधिकारी राकेश शर्मा बोल रहा हूँ। क्या आप सुशीला जी बोल रही हैं?"
+   ],
+   "money_requested": "None mentioned",
+   "actions_taken": [
+    "Guardian notified",
+    "Cool-off hold requested (awaiting guardian approval)"
+   ]
+  }
+ },
+ {
+  "t": 15509,
+  "type": "transcript",
+  "text": "You: अरे नहीं, मैंने तो कोई पार्सल नहीं भेजा। मैं तो घर पर अकेली रहती हूँ।\n"
+ },
+ {
+  "t": 16109,
+  "type": "alert",
+  "alert": {
+   "level": "stop",
+   "scam_type": "digital arrest / cbi scam",
+   "signals": [
+    {
+     "id": "authority_claim",
+     "quote": "मैं सीबीआई अधिकारी राकेश शर्मा बोल रहा हूँ"
+    },
+    {
+     "id": "threat",
+     "quote": "आपके नाम पर मनी लॉन्ड्रिंग का केस दर्ज हुआ है"
+    },
+    {
+     "id": "urgency",
+     "quote": "आपके आधार नंबर से एक पार्सल पकड़ा गया है जिसमें ड्रग्स मिले हैं"
+    }
+   ],
+   "whisper_en": "This is a fake CBI scam. Real police or CBI never investigate drug cases over phone or video call, and they never threaten arrest this way. Please hang up immediately.",
+   "whisper_hi": "यह एक फर्जी सीबीआई कॉल है। असली पुलिस या सीबीआई फोन पर ड्रग्स के मामलों की जांच नहीं करती और न ही ऐसे धमकी देती है। कृपया तुरंत फोन काट दें।"
+  }
+ },
+ {
+  "t": 20458,
+  "type": "transcript",
+  "text": "Caller: आप अभी से डिजिटल अरेस्ट में हैं। वीडियो कॉल पर बनी रहिए और किसी को भी, अपने बेटे को भी, कुछ मत बताइए। कॉल काटी तो पुलिस आपके घर पहुँच जाएगी।\n"
+ },
+ {
+  "t": 30688,
+  "type": "transcript",
+  "text": "You: मुझे बहुत डर लग रहा है।\n"
+ },
+ {
+  "t": 32668,
+  "type": "transcript",
+  "text": "Caller: डरिए मत, सहयोग कीजिए। अपना पैसा साफ साबित करने के लिए आरबीआई के सत्यापन खाते में दो लाख रुपये ट्रांसफर कीजिए। जाँच के बाद वापस मिल जाएँगे। अभी अपना बैंकिंग ऐप खोलिए और जो ओटीपी आए वह बताइए।\n"
+ }
+]

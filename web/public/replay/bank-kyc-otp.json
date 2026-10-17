@@ -1,0 +1,125 @@
+[
+ {
+  "t": 0,
+  "type": "transcript",
+  "text": "Caller: Good afternoon sir, I am calling from State Bank head office. Your KYC has expired and your account will be blocked in two hours.\n"
+ },
+ {
+  "t": 7061,
+  "type": "transcript",
+  "text": "You: Blocked? I have my pension in that account.\n"
+ },
+ {
+  "t": 7661,
+  "type": "alert",
+  "alert": {
+   "level": "warning",
+   "scam_type": "bank_kyc_fraud",
+   "signals": [
+    {
+     "id": "authority_claim",
+     "quote": "calling from State Bank head office"
+    },
+    {
+     "id": "urgency",
+     "quote": "account will be blocked in two hours"
+    }
+   ],
+   "whisper_en": "Hang up now. Banks never threaten to block accounts over a phone call.",
+   "whisper_hi": "फोन काट दीजिए। बैंक कभी भी कॉल पर खाता बंद करने की धमकी नहीं देते।"
+  }
+ },
+ {
+  "t": 8261,
+  "type": "step",
+  "step": {
+   "tool": "check_official_advisory",
+   "detail": "bank_kyc_fraud"
+  }
+ },
+ {
+  "t": 9161,
+  "type": "step",
+  "step": {
+   "tool": "notify_guardian",
+   "detail": "A caller falsely claiming to be from the State Bank head office stated the bank account would be blocked within two hours due to expired KYC. No financial transactions or sensitive details were shared."
+  }
+ },
+ {
+  "t": 9415,
+  "type": "transcript",
+  "text": "Caller: Yes sir, to avoid blocking you must update KYC right now. I am sending you a link. Please install the app called QuickSupport so I can help you on your screen.\n"
+ },
+ {
+  "t": 10061,
+  "type": "step",
+  "step": {
+   "tool": "request_cooloff_hold",
+   "detail": "Caller requested a money transfer / OTP"
+  }
+ },
+ {
+  "t": 11261,
+  "type": "step",
+  "step": {
+   "tool": "draft_report",
+   "detail": "Complaint draft for 1930 / cybercrime.gov.in"
+  }
+ },
+ {
+  "t": 11461,
+  "type": "report",
+  "report": {
+   "category": "bank_kyc_fraud",
+   "summary": "The caller claimed to be from State Bank head office, alleging that the user's KYC has expired and threatening that the account will be blocked in two hours.",
+   "caller_claims": "Caller claimed to represent the State Bank head office and asserted that the recipient's KYC has expired.",
+   "timeline": [
+    "Caller contacted the user claiming to be from State Bank head office.",
+    "Caller stated KYC has expired and threatened account deactivation within two hours."
+   ],
+   "quotes": [
+    "calling from State Bank head office",
+    "Your KYC has expired and your account will be blocked in two hours."
+   ],
+   "money_requested": "None",
+   "actions_taken": [
+    "Guardian notified",
+    "Cool-off hold requested (awaiting guardian approval)"
+   ]
+  }
+ },
+ {
+  "t": 18537,
+  "type": "transcript",
+  "text": "You: Okay, I am installing it.\n"
+ },
+ {
+  "t": 19137,
+  "type": "alert",
+  "alert": {
+   "level": "stop",
+   "scam_type": "bank_kyc_remote_access_scam",
+   "signals": [
+    {
+     "id": "urgency",
+     "quote": "your account will be blocked in two hours"
+    },
+    {
+     "id": "payment_request",
+     "quote": "update KYC right now"
+    },
+    {
+     "id": "remote_access",
+     "quote": "install the app called QuickSupport so I can help you on your screen"
+    }
+   ],
+   "whisper_en": "Stop! This is a scam. Banks never ask you to install remote access apps or update KYC via links.",
+   "whisper_hi": "रुकिए! यह एक धोखा है। बैंक कभी भी रिमोट एक्सेस ऐप इंस्टॉल करने या लिंक के जरिए केवाईसी अपडेट करने के लिए नहीं कहते।"
+  }
+ },
+ {
+  "t": 20008,
+  "type": "transcript",
+  "text": "Caller: Thank you. Now you will receive an OTP on your phone. Please read it to me immediately, and also tell me your card number and PIN to verify.\n"
+ }
+]

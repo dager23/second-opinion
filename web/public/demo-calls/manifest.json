@@ -1,0 +1,34 @@
+[
+ {
+  "id": "digital-arrest-en",
+  "title": "Digital arrest: fake CBI officer (English)",
+  "lang": "en",
+  "kind": "scam",
+  "audio": "/demo-calls/digital-arrest-en.wav",
+  "replay": "/replay/digital-arrest-en.json"
+ },
+ {
+  "id": "digital-arrest-hi",
+  "title": "Digital arrest: fake police (Hindi)",
+  "lang": "hi",
+  "kind": "scam",
+  "audio": "/demo-calls/digital-arrest-hi.wav",
+  "replay": "/replay/digital-arrest-hi.json"
+ },
+ {
+  "id": "bank-kyc-otp",
+  "title": "Fake bank KYC and OTP",
+  "lang": "en",
+  "kind": "scam",
+  "audio": "/demo-calls/bank-kyc-otp.wav",
+  "replay": "/replay/bank-kyc-otp.json"
+ },
+ {
+  "id": "genuine-bank-callback",
+  "title": "Genuine bank callback",
+  "lang": "en",
+  "kind": "genuine",
+  "audio": "/demo-calls/genuine-bank-callback.wav",
+  "replay": "/replay/genuine-bank-callback.json"
+ }
+]

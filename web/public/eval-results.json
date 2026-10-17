@@ -1,0 +1,138 @@
+{
+ "model": "gemini-3.5-flash-lite",
+ "detection_rate": 1.0,
+ "false_alarm_rate": 0.0,
+ "median_seconds_to_first_warning": 10.0,
+ "scam_calls": 10,
+ "genuine_calls": 6,
+ "rows": [
+  {
+   "id": "digital-arrest-en",
+   "kind": "scam",
+   "lang": "en",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 24
+  },
+  {
+   "id": "digital-arrest-hi",
+   "kind": "scam",
+   "lang": "hi",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 20
+  },
+  {
+   "id": "digital-arrest-hinglish",
+   "kind": "scam",
+   "lang": "hi",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 10
+  },
+  {
+   "id": "bank-kyc-otp",
+   "kind": "scam",
+   "lang": "en",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 10
+  },
+  {
+   "id": "relative-in-trouble",
+   "kind": "scam",
+   "lang": "en",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 8
+  },
+  {
+   "id": "tax-refund",
+   "kind": "scam",
+   "lang": "en",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 22
+  },
+  {
+   "id": "investment-guaranteed",
+   "kind": "scam",
+   "lang": "en",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 24
+  },
+  {
+   "id": "courier-customs",
+   "kind": "scam",
+   "lang": "en",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 8
+  },
+  {
+   "id": "jp-fake-police",
+   "kind": "scam",
+   "lang": "ja",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 0
+  },
+  {
+   "id": "jp-oreore",
+   "kind": "scam",
+   "lang": "ja",
+   "level": "stop",
+   "detected": true,
+   "first_warning_s": 0
+  },
+  {
+   "id": "genuine-bank-callback",
+   "kind": "genuine",
+   "lang": "en",
+   "level": "calm",
+   "detected": false,
+   "first_warning_s": null
+  },
+  {
+   "id": "genuine-doctor",
+   "kind": "genuine",
+   "lang": "en",
+   "level": "calm",
+   "detected": false,
+   "first_warning_s": null
+  },
+  {
+   "id": "genuine-grandson",
+   "kind": "genuine",
+   "lang": "en",
+   "level": "calm",
+   "detected": false,
+   "first_warning_s": null
+  },
+  {
+   "id": "genuine-delivery",
+   "kind": "genuine",
+   "lang": "en",
+   "level": "calm",
+   "detected": false,
+   "first_warning_s": null
+  },
+  {
+   "id": "genuine-insurance-renewal",
+   "kind": "genuine",
+   "lang": "en",
+   "level": "calm",
+   "detected": false,
+   "first_warning_s": null
+  },
+  {
+   "id": "genuine-electricity",
+   "kind": "genuine",
+   "lang": "hi",
+   "level": "calm",
+   "detected": false,
+   "first_warning_s": null
+  }
+ ]
+}

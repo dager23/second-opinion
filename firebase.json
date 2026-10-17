@@ -1,0 +1,20 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "hosting": {
+    "public": "web/dist",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [{ "source": "**", "destination": "/index.html" }],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|wav)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+      },
+      {
+        "source": "**",
+        "headers": [{ "key": "Permissions-Policy", "value": "microphone=(self), display-capture=(self)" }]
+      }
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+[
+  {
+    "id": "digital-arrest-en", "kind": "scam", "lang": "en", "demo": true, "title": "Digital arrest: fake CBI officer (English)", "scam_type": "digital_arrest",
+    "turns": [
+      {"s": "caller", "t": "Hello, am I speaking with Mrs. Kamla Devi? This is Inspector Vikram Rathore from the Mumbai Cyber Crime Branch."},
+      {"s": "user", "t": "Yes, this is Kamla. What is this about?"},
+      {"s": "caller", "t": "Madam, a parcel booked with your Aadhaar number has been seized at the airport. It contains drugs and fake passports. A case of money laundering has been registered against you."},
+      {"s": "user", "t": "But I have not sent any parcel. I am a retired teacher."},
+      {"s": "caller", "t": "That is what we need to verify. From this moment you are under digital arrest. You must stay on this video call and you must not tell anyone, not your son, not your bank. If you disconnect, police will arrive at your home within the hour."},
+      {"s": "user", "t": "Oh my god. Please, I am very scared."},
+      {"s": "caller", "t": "Cooperate and nothing will happen. To prove your money is clean, transfer two lakh forty thousand rupees to the RBI verification account I will send you. It will be refunded after the investigation."},
+      {"s": "user", "t": "Should I tell my son first?"},
+      {"s": "caller", "t": "No. Absolutely not. This is a confidential national security matter. Open your banking app now and share the OTP when it comes."}
+    ]
+  },
+  {
+    "id": "digital-arrest-hi", "kind": "scam", "lang": "hi", "demo": true, "title": "Digital arrest: fake police (Hindi)", "scam_type": "digital_arrest",
+    "turns": [
+      {"s": "caller", "t": "नमस्ते, मैं सीबीआई अधिकारी राकेश शर्मा बोल रहा हूँ। क्या आप सुशीला जी बोल रही हैं?"},
+      {"s": "user", "t": "हाँ, मैं सुशीला बोल रही हूँ। क्या हुआ?"},
+      {"s": "caller", "t": "आपके आधार नंबर से एक पार्सल पकड़ा गया है जिसमें ड्रग्स मिले हैं। आपके नाम पर मनी लॉन्ड्रिंग का केस दर्ज हुआ है।"},
+      {"s": "user", "t": "अरे नहीं, मैंने तो कोई पार्सल नहीं भेजा। मैं तो घर पर अकेली रहती हूँ।"},
+      {"s": "caller", "t": "आप अभी से डिजिटल अरेस्ट में हैं। वीडियो कॉल पर बनी रहिए और किसी को भी, अपने बेटे को भी, कुछ मत बताइए। कॉल काटी तो पुलिस आपके घर पहुँच जाएगी।"},
+      {"s": "user", "t": "मुझे बहुत डर लग रहा है।"},
+      {"s": "caller", "t": "डरिए मत, सहयोग कीजिए। अपना पैसा साफ साबित करने के लिए आरबीआई के सत्यापन खाते में दो लाख रुपये ट्रांसफर कीजिए। जाँच के बाद वापस मिल जाएँगे। अभी अपना बैंकिंग ऐप खोलिए और जो ओटीपी आए वह बताइए।"}
+    ]
+  },
+  {
+    "id": "digital-arrest-hinglish", "kind": "scam", "lang": "hi", "title": "Digital arrest: Hinglish customs", "scam_type": "courier_parcel",
+    "turns": [
+      {"s": "caller", "t": "Hello sir, main FedEx customs se bol raha hoon. Aapke naam se ek parcel Taiwan se aaya hai jisme illegal passports aur MDMA mila hai."},
+      {"s": "user", "t": "Mera koi parcel nahi hai. Kya bol rahe ho?"},
+      {"s": "caller", "t": "Sir main aapko Mumbai police se connect karta hoon. Aapko Skype pe aana hoga aur video on rakhna hoga. Kisi ko bhi mat batana warna arrest ho jaoge."},
+      {"s": "user", "t": "Arrest? Main kya karoon?"},
+      {"s": "caller", "t": "Sirf cooperate karo. Case clear karne ke liye aapko pachaas hazaar rupaye security deposit ke taur pe is account mein bhejne honge. Abhi karo, ek ghante mein warrant nikal jayega."}
+    ]
+  },
+  {
+    "id": "bank-kyc-otp", "kind": "scam", "lang": "en", "demo": true, "title": "Fake bank KYC and OTP", "scam_type": "bank_kyc_otp",
+    "turns": [
+      {"s": "caller", "t": "Good afternoon sir, I am calling from State Bank head office. Your KYC has expired and your account will be blocked in two hours."},
+      {"s": "user", "t": "Blocked? I have my pension in that account."},
+      {"s": "caller", "t": "Yes sir, to avoid blocking you must update KYC right now. I am sending you a link. Please install the app called QuickSupport so I can help you on your screen."},
+      {"s": "user", "t": "Okay, I am installing it."},
+      {"s": "caller", "t": "Thank you. Now you will receive an OTP on your phone. Please read it to me immediately, and also tell me your card number and PIN to verify."}
+    ]
+  },
+  {
+    "id": "relative-in-trouble", "kind": "scam", "lang": "en", "title": "Grandson in trouble", "scam_type": "relative_in_trouble",
+    "turns": [
+      {"s": "caller", "t": "Dadi? Dadi, it's me. I am in big trouble. I had an accident and the police have taken me."},
+      {"s": "user", "t": "Rohan? Is that you? Your voice sounds different."},
+      {"s": "caller", "t": "I have a cold, Dadi. Please listen, I need fifty thousand rupees right now for the lawyer or they will put me in jail. Please don't tell Mom and Dad, they will be so angry."},
+      {"s": "user", "t": "What should I do?"},
+      {"s": "caller", "t": "Send it by UPI to this number immediately. A police officer will talk to you now."}
+    ]
+  },
+  {
+    "id": "tax-refund", "kind": "scam", "lang": "en", "title": "Income tax refund", "scam_type": "tax_refund",
+    "turns": [
+      {"s": "caller", "t": "This is the Income Tax Department. You are eligible for a refund of thirty eight thousand rupees."},
+      {"s": "user", "t": "Oh, that is good news. What do I do?"},
+      {"s": "caller", "t": "You must pay a processing fee of two thousand rupees immediately through this link, and then share the OTP that comes, otherwise the refund expires today."}
+    ]
+  },
+  {
+    "id": "investment-guaranteed", "kind": "scam", "lang": "en", "title": "Guaranteed returns investment", "scam_type": "investment",
+    "turns": [
+      {"s": "caller", "t": "Sir, I am from Alpha Wealth. We have a special IPO allotment only for select customers. Guaranteed forty percent returns in one month."},
+      {"s": "user", "t": "That sounds too good. Is it safe?"},
+      {"s": "caller", "t": "Completely safe, sir, guaranteed. But the offer closes today. Deposit one lakh rupees into this account now and do not tell anyone, otherwise others will take your slot."}
+    ]
+  },
+  {
+    "id": "courier-customs", "kind": "scam", "lang": "en", "title": "Courier parcel with drugs", "scam_type": "courier_parcel",
+    "turns": [
+      {"s": "caller", "t": "This is customs. A parcel in your name from abroad contains narcotics. We are transferring you to a police officer."},
+      {"s": "user", "t": "I did not order anything."},
+      {"s": "caller", "t": "Then you must pay a clearance deposit of thirty thousand rupees today and join our video call, or a warrant will be issued against you. Do not hang up."}
+    ]
+  },
+  {
+    "id": "jp-fake-police", "kind": "scam", "lang": "ja", "title": "Japan: fake police (日本語)", "scam_type": "digital_arrest",
+    "turns": [
+      {"s": "caller", "t": "こちらは警視庁の者です。あなたの口座が犯罪に使われています。逮捕状が出ています。"},
+      {"s": "user", "t": "えっ、本当ですか。私は何もしていません。"},
+      {"s": "caller", "t": "誰にも言わないでください。家族にも。今から銀行員が来ます。キャッシュカードと暗証番号を渡してください。"}
+    ]
+  },
+  {
+    "id": "jp-oreore", "kind": "scam", "lang": "ja", "title": "Japan: relative scam (オレオレ)", "scam_type": "relative_in_trouble",
+    "turns": [
+      {"s": "caller", "t": "もしもし、俺だよ、俺。会社の金を失くしちゃって、今日中に三百万円必要なんだ。"},
+      {"s": "user", "t": "どうしたの、声が違うみたいだけど。"},
+      {"s": "caller", "t": "風邪をひいてるんだ。お母さんには絶対に言わないで。今すぐ知り合いに現金を渡してほしい。"}
+    ]
+  },
+  {
+    "id": "genuine-bank-callback", "kind": "genuine", "lang": "en", "demo": true, "title": "Genuine bank callback", "scam_type": "none",
+    "turns": [
+      {"s": "caller", "t": "Good morning Mr. Iyer, this is Priya from your bank's customer service. You had requested a callback about your debit card replacement."},
+      {"s": "user", "t": "Yes, I did. My card was damaged."},
+      {"s": "caller", "t": "Your new card has been dispatched and will arrive in five to seven working days. For your safety, we will never ask for your PIN or OTP on a call. Is there anything else I can help you with?"},
+      {"s": "user", "t": "No, that's all. Thank you."},
+      {"s": "caller", "t": "You're welcome. Have a nice day."}
+    ]
+  },
+  {
+    "id": "genuine-doctor", "kind": "genuine", "lang": "en", "title": "Clinic appointment reminder", "scam_type": "none",
+    "turns": [
+      {"s": "caller", "t": "Hello, this is Dr. Mehta's clinic. I am calling to remind you about your appointment tomorrow at ten thirty."},
+      {"s": "user", "t": "Oh yes, thank you. Do I need to bring anything?"},
+      {"s": "caller", "t": "Please bring your previous reports and your medicines. You can pay at the clinic after the visit. See you tomorrow."}
+    ]
+  },
+  {
+    "id": "genuine-grandson", "kind": "genuine", "lang": "en", "title": "Grandson calling to chat", "scam_type": "none",
+    "turns": [
+      {"s": "caller", "t": "Hi Dadi, it's Rohan! How are you? I wanted to tell you I got into the university."},
+      {"s": "user", "t": "That's wonderful, beta! I am so proud of you."},
+      {"s": "caller", "t": "Thank you Dadi. We will come and visit you on Sunday. Mom is bringing your favourite sweets."}
+    ]
+  },
+  {
+    "id": "genuine-delivery", "kind": "genuine", "lang": "en", "title": "Food delivery rider", "scam_type": "none",
+    "turns": [
+      {"s": "caller", "t": "Hello sir, I am the delivery partner. I am outside your gate with your order, but the door is locked."},
+      {"s": "user", "t": "Oh, I will come down in two minutes."},
+      {"s": "caller", "t": "Sure sir, no problem. I will wait near the gate."}
+    ]
+  },
+  {
+    "id": "genuine-insurance-renewal", "kind": "genuine", "lang": "en", "title": "Insurance renewal reminder", "scam_type": "none",
+    "turns": [
+      {"s": "caller", "t": "Hello, this is a reminder from your insurance company. Your health policy is due for renewal next month on the fifteenth."},
+      {"s": "user", "t": "Okay. How do I renew?"},
+      {"s": "caller", "t": "You can renew at any of our branches or on our official app or website. There is no hurry, and you can call our customer care number printed on your policy if you have any questions."}
+    ]
+  },
+  {
+    "id": "genuine-electricity", "kind": "genuine", "lang": "hi", "title": "Electricity office meter visit (Hindi)", "scam_type": "none",
+    "turns": [
+      {"s": "caller", "t": "नमस्ते, मैं बिजली विभाग से बोल रहा हूँ। कल सुबह हमारा कर्मचारी आपके घर मीटर रीडिंग लेने आएगा।"},
+      {"s": "user", "t": "ठीक है, कितने बजे तक आएँगे?"},
+      {"s": "caller", "t": "दस से बारह बजे के बीच। आपको कुछ करने की ज़रूरत नहीं है, बस मीटर तक पहुँच दे दीजिए।"}
+    ]
+  }
+]

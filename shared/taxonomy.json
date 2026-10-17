@@ -1,0 +1,36 @@
+{
+  "signals": [
+    {"id": "authority_claim", "label": "Claims to be police / CBI / bank / government", "weight": 2},
+    {"id": "urgency", "label": "Urgency / deadline pressure", "weight": 1},
+    {"id": "isolation_secrecy", "label": "Isolation or secrecy (stay on video, don't tell family)", "weight": 3},
+    {"id": "payment_request", "label": "Asks for transfer / OTP / card / UPI PIN", "weight": 3},
+    {"id": "remote_access", "label": "Asks to install an app or share the screen", "weight": 3},
+    {"id": "threat", "label": "Threat of arrest, account freeze, legal action", "weight": 2},
+    {"id": "channel_shift", "label": "Moves to WhatsApp / Skype / Meet or another channel", "weight": 1},
+    {"id": "too_good", "label": "Too-good-to-be-true reward or guaranteed returns", "weight": 2},
+    {"id": "emotional_manipulation", "label": "Emotional manipulation (relative in trouble, romance, shame)", "weight": 2},
+    {"id": "fake_documents", "label": "Shows fake warrant, ID card or official-looking documents", "weight": 2}
+  ],
+  "scam_types": [
+    {"id": "digital_arrest", "label": "Digital arrest / fake police", "ages": ["senior", "adult"]},
+    {"id": "bank_kyc_otp", "label": "Fake bank / KYC / OTP", "ages": ["senior", "adult"]},
+    {"id": "relative_in_trouble", "label": "Relative in trouble / grandparent scam", "ages": ["senior"]},
+    {"id": "investment", "label": "Investment / trading scam", "ages": ["adult", "young_adult", "senior"]},
+    {"id": "task_job", "label": "Task / fake job scam", "ages": ["young_adult", "teen"]},
+    {"id": "sextortion", "label": "Sextortion / blackmail", "ages": ["teen", "young_adult"]},
+    {"id": "romance", "label": "Romance scam", "ages": ["senior", "adult"]},
+    {"id": "courier_parcel", "label": "Courier / parcel customs scam", "ages": ["adult", "senior"]},
+    {"id": "ecommerce_fake_seller", "label": "Fake seller / e-commerce", "ages": ["young_adult", "adult"]},
+    {"id": "phishing_link", "label": "Phishing link / fake app", "ages": ["teen", "young_adult", "adult", "senior"]},
+    {"id": "gaming_giveaway", "label": "Gaming currency / fake giveaway", "ages": ["teen"]},
+    {"id": "loan_app", "label": "Loan app harassment", "ages": ["young_adult"]},
+    {"id": "tax_refund", "label": "Tax refund / government benefit scam", "ages": ["senior", "adult"]},
+    {"id": "none", "label": "No scam detected", "ages": []}
+  ],
+  "profiles": {
+    "senior": "an elderly person (65+), calm, patient, plain language, short sentences",
+    "adult": "a working adult, concise and direct",
+    "young_adult": "a young adult (18-29), casual direct tone, mention job/investment/seller scam patterns",
+    "teen": "a teenager (13-17), supportive and non-judgmental, never blame; mention it is not their fault and to tell a trusted adult; sextortion, gaming and giveaway patterns"
+  }
+}

@@ -1,0 +1,17 @@
+rendering digital-arrest-en
+   TTS retry: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Multi-speaker generation requests must specify speech_metadata.speaker for each te (sleep 10s)
+   TTS retry: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Multi-speaker generation requests must specify speech_metadata.speaker for each te (sleep 20s)
+   TTS retry: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Multi-speaker generation requests must specify speech_metadata.speaker for each te (sleep 30s)
+   TTS retry: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For (sleep 40s)
+Traceback (most recent call last):
+  File "D:\aibuildercup\second-opinion\tools\render_calls.py", line 127, in <module>
+    main()
+    ~~~~^^
+  File "D:\aibuildercup\second-opinion\tools\render_calls.py", line 98, in main
+    render_call(client, c)
+    ~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\aibuildercup\second-opinion\tools\render_calls.py", line 67, in render_call
+    pcm = tts(client, style + script, speakers={"Caller": VOICES["caller"], "Elder": VOICES["user"]})
+  File "D:\aibuildercup\second-opinion\tools\render_calls.py", line 61, in tts
+    raise RuntimeError("TTS failed")
+RuntimeError: TTS failed

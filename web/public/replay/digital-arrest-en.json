@@ -1,0 +1,138 @@
+[
+ {
+  "t": 0,
+  "type": "transcript",
+  "text": "Caller: Hello, am I speaking with Mrs. Kamla Devi? This is Inspector Vikram Rathore from the Mumbai Cyber Crime Branch.\n"
+ },
+ {
+  "t": 6357,
+  "type": "transcript",
+  "text": "You: Yes, this is Kamla. What is this about?\n"
+ },
+ {
+  "t": 6957,
+  "type": "alert",
+  "alert": {
+   "level": "caution",
+   "scam_type": "police_impersonation",
+   "signals": [
+    {
+     "id": "authority_claim",
+     "quote": "This is Inspector Vikram Rathore from the Mumbai Cyber Crime Branch."
+    }
+   ],
+   "whisper_en": "",
+   "whisper_hi": ""
+  }
+ },
+ {
+  "t": 9034,
+  "type": "transcript",
+  "text": "Caller: Madam, a parcel booked with your Aadhaar number has been seized at the airport. It contains drugs and fake passports. A case of money laundering has been registered against you.\n"
+ },
+ {
+  "t": 19072,
+  "type": "transcript",
+  "text": "You: But I have not sent any parcel. I am a retired teacher.\n"
+ },
+ {
+  "t": 19672,
+  "type": "alert",
+  "alert": {
+   "level": "stop",
+   "scam_type": "Digital Arrest / Police Impersonation Scam",
+   "signals": [
+    {
+     "id": "authority_claim",
+     "quote": "Inspector Vikram Rathore from the Mumbai Cyber Crime Branch"
+    },
+    {
+     "id": "threat",
+     "quote": "A case of money laundering has been registered against you"
+    }
+   ],
+   "whisper_en": "This is a scam. Real police never investigate drug parcels or register cases over the phone.",
+   "whisper_hi": "यह एक धोखाधड़ी है। असली पुलिस फोन पर मामलों की जांच नहीं करती है।"
+  }
+ },
+ {
+  "t": 20272,
+  "type": "step",
+  "step": {
+   "tool": "check_official_advisory",
+   "detail": "Digital Arrest / Police Impersonation Scam"
+  }
+ },
+ {
+  "t": 21172,
+  "type": "step",
+  "step": {
+   "tool": "notify_guardian",
+   "detail": "Kamla received a scam call from a person impersonating a police officer alleging her identity was linked to illegal packages. She is safe and no money or personal banking details were shared."
+  }
+ },
+ {
+  "t": 22072,
+  "type": "step",
+  "step": {
+   "tool": "request_cooloff_hold",
+   "detail": "Caller requested a money transfer / OTP"
+  }
+ },
+ {
+  "t": 23087,
+  "type": "transcript",
+  "text": "Caller: That is what we need to verify. From this moment you are under digital arrest. You must stay on this video call and you must not tell anyone, not your son, not your bank. If you disconnect, police will arrive at your home within the hour.\n"
+ },
+ {
+  "t": 23272,
+  "type": "step",
+  "step": {
+   "tool": "draft_report",
+   "detail": "Complaint draft for 1930 / cybercrime.gov.in"
+  }
+ },
+ {
+  "t": 23472,
+  "type": "report",
+  "report": {
+   "category": "Digital Arrest / Police Impersonation Scam",
+   "summary": "A caller posing as a police officer falsely informed the victim that a seized airport parcel containing contraband was tied to her Aadhaar and that a money laundering case was filed against her.",
+   "caller_claims": "The caller claimed to be Inspector Vikram Rathore from the Mumbai Cyber Crime Branch, claiming a parcel with the victim's Aadhaar was seized at the airport with drugs and fake passports, resulting in a money laundering case.",
+   "timeline": [
+    "Caller contacted Kamla Devi identifying as Inspector Vikram Rathore from Mumbai Cyber Crime Branch.",
+    "Caller asserted that a parcel registered under her Aadhaar containing narcotics and counterfeit passports was intercepted at the airport.",
+    "Caller accused her of being subject to a registered money laundering case."
+   ],
+   "quotes": [
+    "This is Inspector Vikram Rathore from the Mumbai Cyber Crime Branch.",
+    "Madam, a parcel booked with your Aadhaar number has been seized at the airport. It contains drugs and fake passports. A case of money laundering has been registered against you."
+   ],
+   "money_requested": "None mentioned in transcript",
+   "actions_taken": [
+    "Guardian notified",
+    "Cool-off hold requested (awaiting guardian approval)"
+   ]
+  }
+ },
+ {
+  "t": 38479,
+  "type": "transcript",
+  "text": "You: Oh my god. Please, I am very scared.\n"
+ },
+ {
+  "t": 41156,
+  "type": "transcript",
+  "text": "Caller: Cooperate and nothing will happen. To prove your money is clean, transfer two lakh forty thousand rupees to the RBI verification account I will send you. It will be refunded after the investigation.\n"
+ },
+ {
+  "t": 52198,
+  "type": "transcript",
+  "text": "You: Should I tell my son first?\n"
+ },
+ {
+  "t": 54206,
+  "type": "transcript",
+  "text": "Caller: No. Absolutely not. This is a confidential national security matter. Open your banking app now and share the OTP when it comes.\n"
+ }
+]
