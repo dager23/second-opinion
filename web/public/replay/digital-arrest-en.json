@@ -56,6 +56,15 @@
   }
  },
  {
+  "t": 19972,
+  "type": "step",
+  "final": true,
+  "step": {
+   "tool": "alert_guardian",
+   "detail": "Guardian’s phone alerted with a live summary"
+  }
+ },
+ {
   "t": 20272,
   "type": "step",
   "step": {
@@ -68,15 +77,7 @@
   "type": "step",
   "step": {
    "tool": "notify_guardian",
-   "detail": "Kamla received a scam call from a person impersonating a police officer alleging her identity was linked to illegal packages. She is safe and no money or personal banking details were shared."
-  }
- },
- {
-  "t": 22072,
-  "type": "step",
-  "step": {
-   "tool": "request_cooloff_hold",
-   "detail": "Caller requested a money transfer / OTP"
+   "detail": "Kamla received a scam call from a person impersonating a police officer alleging her identity was linked to illegal packages. Please call them now."
   }
  },
  {
@@ -134,5 +135,42 @@
   "t": 54206,
   "type": "transcript",
   "text": "Caller: No. Absolutely not. This is a confidential national security matter. Open your banking app now and share the OTP when it comes.\n"
+ },
+ {
+  "t": 62767,
+  "type": "report",
+  "final": true,
+  "report": {
+   "category": "Digital arrest / police impersonation",
+   "summary": "A caller impersonated an officer from the Mumbai Cyber Crime Branch and informed the victim that an illegal parcel was seized in her name. The caller placed the victim under 'digital arrest' and ordered her to transfer money to a supposed RBI verification account while demanding an OTP.",
+   "caller_claims": "The caller claimed to be Inspector Vikram Rathore from the Mumbai Cyber Crime Branch, alleging that a parcel containing drugs and fake passports was booked using the victim's Aadhaar number and that a money laundering case was registered against her.",
+   "timeline": [
+    "Caller contacted Mrs. Kamla Devi identifying himself as Inspector Vikram Rathore from the Mumbai Cyber Crime Branch.",
+    "Caller alleged a parcel booked with her Aadhaar containing drugs and fake passports was seized, resulting in a money laundering case.",
+    "Caller declared her under 'digital arrest', threatened that police would arrive if she disconnected, and barred her from contacting family or her bank.",
+    "Caller instructed her to transfer two lakh forty thousand rupees to an 'RBI verification account' under the premise of proving her funds were clean.",
+    "Caller ordered her to open her banking app and share the received OTP immediately."
+   ],
+   "quotes": [
+    "This is Inspector Vikram Rathore from the Mumbai Cyber Crime Branch.",
+    "Madam, a parcel booked with your Aadhaar number has been seized at the airport. It contains drugs and fake passports. A case of money laundering has been registered against you.",
+    "From this moment you are under digital arrest. You must stay on this video call and you must not tell anyone, not your son, not your bank.",
+    "To prove your money is clean, transfer two lakh forty thousand rupees to the RBI verification account I will send you.",
+    "Open your banking app now and share the OTP when it comes."
+   ],
+   "money_requested": "Two lakh forty thousand rupees via transfer to an RBI verification account",
+   "actions_taken": [
+    "Guardian alerted"
+   ]
+  }
+ },
+ {
+  "t": 62867,
+  "type": "step",
+  "final": true,
+  "step": {
+   "tool": "draft_report",
+   "detail": "Final complaint draft written from the full call"
+  }
  }
 ]

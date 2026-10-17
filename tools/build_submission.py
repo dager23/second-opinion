@@ -74,7 +74,7 @@ def main():
         "  - It acts: guardian alert, guardian-approved cool-off hold, ready-to-file complaint draft. Every alert shows the exact quote that triggered it.\n\n"
         "How will it solve the problem?\n"
         "  - It interrupts the scam at the one moment it can be stopped: while the victim is on the call and before they authorise the transfer.\n"
-        "  - A family member is pulled in within seconds, breaking the isolation scammers rely on. Reporting is instant (feeds India's 1930 'golden hour').\n\n"
+        "  - A family member is pulled in within seconds, breaking the isolation scammers rely on. Reporting is instant: a ready complaint for India's 1930 rapid-reporting system, which had helped save ~INR 8,189 crore by Dec 2025.\n\n"
         "USP\n"
         "  - Live, multilingual, explainable (quotes + official advisories), human-in-the-loop (guardian approves), privacy-first (no audio stored), "
         "and ONE engine for every age group: seniors today, teens (sextortion) and young adults (job/task scams) next."), 11.5)
@@ -84,14 +84,15 @@ def main():
         "1. Call Guard: listens to speakerphone, a Google Meet tab or a demo call; live transcript; risk meter (Calm / Caution / Warning / STOP).\n"
         "2. Signal timeline: each scam signal with the exact quote and timestamp (authority claim, urgency, secrecy, payment/OTP request, threat ...).\n"
         "3. Whisper warning in English or Hindi and a one-tap 'Hang up & call 1930' button; large, calm, senior-friendly UI.\n"
-        "4. Case agent (Gemini function calling): checks the official advisory, alerts the guardian, requests a cool-off hold, drafts the complaint.\n"
-        "5. Family guardian console on a second phone (QR / pairing code): realtime alerts, approve or decline the hold.\n"
-        "6. Complaint draft for 1930 / cybercrime.gov.in: category, summary, timeline, quotes, amount requested; copy / print / PDF.\n"
-        "7. Scam Check: upload chat screenshots or audio recordings, paste a message/link text, or ask a question; verdict, risk score, red flags, safe reply, follow-up chat.\n"
-        "8. Frame Check: periodic video-call frame checked for staged authority cues (uniform, fake warrant) - cues only, never a deepfake verdict.\n"
-        "9. All-ages profiles: Senior (core), Adult, Young adult, Teen (beta) change tone and scam taxonomy; Hindi / English interface.\n"
-        "10. Impact page: sourced statistics and an avoidable-loss calculator (12% conservative to 94% lab ceiling).\n"
-        "11. Recorded Replay mode and evaluation harness (16 scripted calls: 10 scam, 6 genuine)."), 11)
+        "4. Safety actions never wait for an LLM: instant guardian alert at Warning; cool-off hold as soon as money or an OTP is asked.\n"
+        "5. Case agent (Gemini function calling): official advisory, plain-language guardian summary, early complaint draft.\n"
+        "6. Family guardian console on a second phone (QR / pairing code): realtime alerts, approve or decline the hold.\n"
+        "7. Final complaint draft for 1930 / cybercrime.gov.in written from the FULL call: category, summary, timeline, quotes, amount; copy / print.\n"
+        "8. Scam Check: upload chat screenshots or audio recordings, paste a message/link text, or ask a question; verdict, risk score, red flags, safe reply, follow-up chat.\n"
+        "9. Frame Check: periodic video-call frame checked for staged authority cues (uniform, fake warrant) - cues only, never a deepfake verdict.\n"
+        "10. All-ages profiles: Senior (core), Adult, Young adult, Teen (beta) change tone and scam taxonomy; Hindi / English interface.\n"
+        "11. Impact page: sourced statistics and an avoidable-loss calculator (12% conservative to 94% lab ceiling).\n"
+        "12. Recorded Replay mode and evaluation harness (16 scripted calls: 10 scam, 6 genuine)."), 11)
 
     # ---- Page 6: process flow
     image(P(6), (22, 86, 698, 392), "flow.png")
@@ -133,7 +134,9 @@ def main():
     image(p, (476, 84, 696, 220), "05-impact.png")
     image(p, (24, 226, 244, 362), "02-case-report.png")
     image(p, (250, 226, 470, 362), "06-impact-calc.png")
-    p.insert_text((24, 378), "Live prototype: Call Guard (STOP + case agent + guardian), Scam Check verdict, Impact page. " + APP_URL, fontsize=8.5, fontname="helv", color=INK)
+    if (ASSETS / "07-guardian.png").exists():
+        image(p, (476, 226, 696, 362), "07-guardian.png")
+    p.insert_text((24, 378), "Live prototype: Call Guard (STOP + case agent), complaint draft, Scam Check verdict, Impact page, guardian phone view. " + APP_URL, fontsize=8.5, fontname="helv", color=INK)
 
     # ---- Page 12: performance / benchmarking
     rows = ev["rows"]
@@ -141,10 +144,11 @@ def main():
     summary = (
         f"Evaluation ({ev['model']}), 16 scripted calls run through the SAME classifier prompt the app ships:\n"
         f"  - Scam calls detected (warning or stop): {ev['detection_rate']:.0%} of {ev['scam_calls']}   |   False alarms on genuine calls: {ev['false_alarm_rate']:.0%} of {ev['genuine_calls']}\n"
-        f"  - Median estimated time to first warning: {ev['median_seconds_to_first_warning']} s (estimated from word counts at ~2.4 words/s)\n"
+        f"  - Median estimated time to first warning: {ev['median_seconds_to_first_warning']} s (estimated from word counts at ~2.4 words/s; Japanese ~7 chars/s)\n"
         "Measured on the deployed prototype:\n"
-        "  - English digital-arrest demo call (audio): STOP with correct quotes at ~24 s; guardian alert + complaint draft within seconds after that.\n"
-        "  - Scam Check (text, low thinking level): result in ~9 s; deployed on Firebase Hosting with App Check.\n"
+        "  - English digital-arrest demo call (62 s of audio, end-to-end on the live site): STOP at ~24 s with exact quotes; guardian alerted instantly;\n"
+        "    cool-off hold requested the moment the transfer was demanded; final complaint draft (amount, method, 5 quotes) ~15 s after the call ended.\n"
+        "  - Scam Check: text ~9 s; a 28 s call recording ~40 s. Per-model fallback + request timeouts keep it working under free-tier limits.\n"
         "Caveat: scripted, small-scale and indicative - not a field trial."
     )
     fit_text(doc, P(12), pymupdf.Rect(40, 92, 692, 188), summary, 10)

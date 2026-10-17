@@ -6,7 +6,7 @@
 3. **Build → Firestore Database → Create database** (production mode, region `asia-south1` or nearest).
 4. **Build → AI Logic → Get started → choose "Gemini Developer API"** (enable the API when asked; it can create an API key restricted to this project).
 5. **Project settings → Your apps → Web (</>) → register app "second-opinion"** → copy the `firebaseConfig` values into `web/.env.local` (copy from `web/.env.local.example`).
-6. **App Check → Apps → your web app → reCAPTCHA v3**: register a site at https://www.google.com/recaptcha/admin (v3, add domains `localhost` and `<project>.web.app`), paste the secret key in Firebase, and put the *site key* in `VITE_RECAPTCHA_SITE_KEY`. (Leave enforcement OFF until the final test; Firebase AI Logic enforces App Check from 2 Nov.)
+6. **App Check → Apps → your web app → reCAPTCHA Enterprise**: enable the reCAPTCHA Enterprise API in the SAME Google Cloud project, create a score-based website key (domains `localhost`, `<project>.web.app`, `<project>.firebaseapp.com`), register it in App Check, and put the key ID in `VITE_RECAPTCHA_ENTERPRISE_KEY`. For local dev, add a debug token in App Check and put it in `web/.env.development.local` as `VITE_APPCHECK_DEBUG_TOKEN`.
 7. For local dev with App Check on: run the app once, copy the debug token from the browser console, add it under App Check → Manage debug tokens.
 
 ## B. Deploy
@@ -31,7 +31,7 @@ Live URL: `https://<project-id>.web.app`
 ## D. Submission package
 - [ ] Live URL works logged out, in incognito, on a phone
 - [ ] Public GitHub repo: `git remote add origin ... && git push -u origin main` (check `git ls-files | grep env` shows nothing)
-- [ ] Deck PDF: `
-- [ ] Demo video under 3:00 (see `docs/video-script.md`), public on YouTube/Vimeo/Drive
+- [ ] Deck PDF: `python tools/build_submission.py --template "<path to template PDF>" --video-url <link>` → `docs/submission/Victoris-Second-Opinion-Submission.pdf`
+- [ ] Demo video of 3-4 minutes (see `docs/video-script.md`), public on YouTube/Vimeo/Drive
 - [ ] Category: Social Good (theme: Sustainability & Social Impact)
 - [ ] Submit on the Hack2skill dashboard before the deadline (18 Oct, timezone not stated: submit early)

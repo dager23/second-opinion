@@ -76,7 +76,7 @@
    "lang": "ja",
    "level": "stop",
    "detected": true,
-   "first_warning_s": 0
+   "first_warning_s": 6
   },
   {
    "id": "jp-oreore",
@@ -84,7 +84,7 @@
    "lang": "ja",
    "level": "stop",
    "detected": true,
-   "first_warning_s": 0
+   "first_warning_s": 5
   },
   {
    "id": "genuine-bank-callback",

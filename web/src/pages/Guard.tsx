@@ -38,7 +38,8 @@ export default function Guard() {
   const whisper = lang === 'hi' ? s.whisper.hi || s.whisper.en : s.whisper.en
   const guardianUrl = s.code ? `${location.origin}/guardian/${s.code}` : ''
   const hold = sess?.holdStatus ?? 'none'
-  const idle = !s.running
+  const idle = !s.running && !s.finishing
+  const active = s.running || s.finishing || s.level !== 'calm'
 
   return (
     <div className="grid gap-4 lg:grid-cols-[22rem_1fr]">
@@ -77,21 +78,25 @@ export default function Guard() {
             </select>
             <div className="flex gap-2">
               <button className="btn btn-ghost flex-1" disabled={!idle || !demo || !firebaseConfigured} onClick={() => demo && g.startDemo(demo)}>
-                ▶ Play live
+                ▶ Analyse live
               </button>
               <button className="btn btn-ghost flex-1" disabled={!idle || !demo?.replay} onClick={() => demo && g.startReplay(demo)}>
-                ⏺ Replay
+                ⏺ Recorded replay
               </button>
             </div>
+            <p className="text-xs text-ink/70">
+              <b>Analyse live</b> sends the demo call to Gemini in real time. <b>Recorded replay</b> plays a saved run with no model calls.
+            </p>
             <label className="flex items-center gap-2 text-xs text-ink/80">
-              <input type="checkbox" checked={live} disabled={s.running} onChange={(e) => setLive(e.target.checked)} />
+              <input type="checkbox" checked={live} disabled={!idle} onChange={(e) => setLive(e.target.checked)} />
               Use Gemini Live streaming (beta). Default: chunked analysis, which reacts every ~8 s.
             </label>
             {s.running && (
-              <button className="btn btn-danger" onClick={g.stop}>
+              <button className="btn btn-danger" onClick={g.stop} disabled={s.finishing}>
                 ■ Stop
               </button>
             )}
+            {s.finishing && <p className="text-sm font-semibold text-ink/80">Finishing the analysis and the final report…</p>}
           </div>
         </section>
 
@@ -118,7 +123,7 @@ export default function Guard() {
         </section>
       </aside>
 
-      <div className="space-y-4">
+      <div className={`space-y-4 ${active ? 'order-first lg:order-none' : ''}`}>
         <section
           aria-live="assertive"
           className={`rounded-2xl p-5 text-white ${meta.bg} ${s.level === 'stop' ? 'pulse' : ''}`}
@@ -126,7 +131,7 @@ export default function Guard() {
           <div className="flex items-center justify-between gap-2">
             <div>
               <div className="text-sm opacity-90">
-                {s.running ? `Listening ${fmt(s.elapsed)}` : s.status} {s.engine && `· ${s.engine === 'live' ? 'Gemini Live' : s.engine === 'chunk' ? 'chunked mode' : 'recorded replay'}`}
+                {s.finishing ? 'Finishing…' : s.running ? `Listening ${fmt(s.elapsed)}` : s.status} {s.engine && `· ${s.engine === 'live' ? 'Gemini Live' : s.engine === 'chunk' ? 'chunked mode' : 'recorded replay'}`}
               </div>
               <div className="text-4xl font-extrabold">{lang === 'hi' ? meta.hi : meta.label}</div>
             </div>
@@ -141,8 +146,8 @@ export default function Guard() {
               <a className="btn bg-white text-ink" href={`tel:${helplines.IN.phone}`}>
                 Hang up & call {helplines.IN.phone}
               </a>
-              {guardianUrl && (
-                <span className="rounded-lg bg-white/20 px-3 py-2 text-sm">Your guardian has been alerted</span>
+              {sess?.guardianSummary && (
+                <span className="rounded-lg bg-white/20 px-3 py-2 text-sm">Guardian alert sent (code {s.code})</span>
               )}
             </div>
           )}

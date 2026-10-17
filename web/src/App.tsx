@@ -1,13 +1,14 @@
+import { lazy, Suspense } from 'react'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import { PROFILE_LABEL, useApp } from './ctx'
 import type { Profile } from './shared'
 import { firebaseConfigured } from './firebase'
 import Guard from './pages/Guard'
-import Check from './pages/Check'
-import Guardian from './pages/Guardian'
-import Impact from './pages/Impact'
-import Roadmap from './pages/Roadmap'
-import About from './pages/About'
+const Check = lazy(() => import('./pages/Check'))
+const Guardian = lazy(() => import('./pages/Guardian'))
+const Impact = lazy(() => import('./pages/Impact'))
+const Roadmap = lazy(() => import('./pages/Roadmap'))
+const About = lazy(() => import('./pages/About'))
 
 const links = [
   ['/', 'Call Guard'],
@@ -21,11 +22,9 @@ export default function App() {
   const { lang, setLang, profile, setProfile } = useApp()
   return (
     <div className="mx-auto max-w-6xl px-4 pb-16">
-      <header className="flex flex-wrap items-center gap-3 py-4">
+      <header className="flex flex-wrap items-center gap-3 py-4 print:hidden">
         <NavLink to="/" className="flex items-center gap-2 text-xl font-extrabold tracking-tight">
-          <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-brand text-white">
-            ✓
-          </span>
+          <img src="/favicon.svg" alt="" aria-hidden className="h-9 w-9" />
           Second Opinion
         </NavLink>
         <nav aria-label="Main" className="flex flex-wrap gap-1 text-sm font-semibold">
@@ -79,6 +78,7 @@ export default function App() {
         </div>
       )}
       <main>
+        <Suspense fallback={<p className="text-ink/60">Loading…</p>}>
         <Routes>
           <Route path="/" element={<Guard />} />
           <Route path="/check" element={<Check />} />
@@ -88,8 +88,9 @@ export default function App() {
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        </Suspense>
       </main>
-      <footer className="mt-12 border-t border-[#e3dfd2] pt-4 text-xs text-ink/70">
+      <footer className="mt-12 print:hidden border-t border-[#e3dfd2] pt-4 text-xs text-ink/70">
         Second Opinion gives guidance, not legal or financial advice. In an emergency, call your local helpline (India 1930).
         Built for the AI Builder Cup 2026 with Gemini and Firebase.
       </footer>

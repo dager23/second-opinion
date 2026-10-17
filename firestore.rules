@@ -1,24 +1,39 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Sessions are addressed by a random 6-character pairing code. No listing is allowed,
-    // so a guardian must know the code. Raw audio is never stored; only signals + short quotes.
+    // Sessions are addressed by a random 6-character pairing code (31^6 ≈ 887M). Listing is disabled,
+    // so a guardian must know the code. Raw audio is never stored; only risk level, signals + short quotes.
     match /sessions/{code} {
+      function isOwner() {
+        return request.auth != null && resource.data.owner == request.auth.uid;
+      }
+
       allow get: if request.auth != null;
       allow list: if false;
+
       allow create: if request.auth != null
+        && code.size() == 6
         && request.resource.data.owner == request.auth.uid
-        && code.size() == 6;
-      allow update: if request.auth != null && (
-        resource.data.owner == request.auth.uid
-        || request.resource.data.diff(resource.data).affectedKeys().hasOnly(['holdStatus'])
-      );
-      allow delete: if request.auth != null && resource.data.owner == request.auth.uid;
+        && request.resource.data.holdStatus == 'none'
+        && request.resource.data.level == 'calm';
+
+      allow update: if
+        // the protected person's device may update its own session, but never hand it to someone else
+        (isOwner() && request.resource.data.owner == resource.data.owner)
+        // a guardian may only answer a pending hold request: approve or decline, nothing else
+        || (request.auth != null
+            && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['holdStatus'])
+            && resource.data.holdStatus == 'requested'
+            && request.resource.data.holdStatus in ['approved', 'declined']);
+
+      allow delete: if isOwner();
 
       match /alerts/{alertId} {
         allow read: if request.auth != null;
         allow create: if request.auth != null
-          && get(/databases/$(database)/documents/sessions/$(code)).data.owner == request.auth.uid;
+          && get(/databases/$(database)/documents/sessions/$(code)).data.owner == request.auth.uid
+          && request.resource.data.signals is list
+          && request.resource.data.signals.size() <= 20;
         allow update, delete: if false;
       }
     }

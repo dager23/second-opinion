@@ -9,6 +9,8 @@ import {
 import { ai, MODELS } from '../firebase'
 import { prompts, SIGNAL_IDS, SCAM_IDS, type Alert, type Level } from '../shared'
 import { toBase64 } from '../audio/capture'
+import { isRetryable } from '../errors'
+import { TIMEOUT } from '../aiModels'
 
 export interface EngineEvents {
   onTranscript: (text: string, final: boolean) => void
@@ -20,6 +22,8 @@ export interface EngineEvents {
 export interface Engine {
   mode: 'live' | 'chunk'
   pushPcm: (pcm: ArrayBuffer) => void
+  /** analyse whatever audio is still buffered (end of call) and wait for in-flight work */
+  finish: () => Promise<void>
   stop: () => void
 }
 
@@ -103,6 +107,8 @@ export async function startLiveEngine(ev: EngineEvents): Promise<Engine> {
         .sendAudioRealtime({ mimeType: 'audio/pcm;rate=16000', data: toBase64(pcm) })
         .catch((e) => !closed && ev.onError(e as Error))
     },
+    // Live responds on its own turn boundaries; give it a moment to deliver any pending tool call
+    finish: () => new Promise((r) => setTimeout(r, 1500)),
     stop: () => {
       closed = true
       void session.close().catch(() => {})
@@ -145,31 +151,44 @@ function pcmToWav(chunks: ArrayBuffer[]): ArrayBuffer {
 }
 
 export function startChunkEngine(ev: EngineEvents, windowMs = 8000): Engine {
-  const model = getGenerativeModel(ai, {
-    model: MODELS.lite,
-    systemInstruction: prompts.chunk_classifier,
-    generationConfig: { responseMimeType: 'application/json', responseSchema: chunkSchema, thinkingConfig: { thinkingLevel: ThinkingLevel.LOW } },
-  })
+  const models = [MODELS.lite, MODELS.liteAlt].map((name) =>
+    getGenerativeModel(ai, {
+      model: name,
+      systemInstruction: prompts.chunk_classifier,
+      generationConfig: { responseMimeType: 'application/json', responseSchema: chunkSchema, thinkingConfig: { thinkingLevel: ThinkingLevel.LOW } },
+    }, { timeout: TIMEOUT.chunk }),
+  )
+  let modelIdx = 0
+  let quotaStrikes = 0
   let buf: ArrayBuffer[] = []
   let bytes = 0
   let summary = ''
-  let busy = false
+  let inflight: Promise<void> | null = null
   let closed = false
-  const need = (windowMs / 1000) * 32000
+  const BYTES_PER_SEC = 32000 // 16 kHz * 16-bit mono
+  const need = (windowMs / 1000) * BYTES_PER_SEC
   ev.onStatus('Listening (chunked mode)')
 
-  async function flush() {
-    if (busy || closed || bytes < need) return
-    busy = true
+  function flush(minBytes = need) {
+    if (inflight || closed || bytes < minBytes) return inflight
     const chunks = buf
     buf = []
     bytes = 0
+    inflight = analyse(chunks).finally(() => {
+      inflight = null
+    })
+    return inflight
+  }
+
+  async function analyse(chunks: ArrayBuffer[]) {
     try {
       const wav = pcmToWav(chunks)
-      const res = await model.generateContent([
+      const res = await models[modelIdx].generateContent([
         { type: 'text', text: `Running summary of the call so far: ${summary || '(start of call)'}` },
         { type: 'inlineData', inlineData: { mimeType: 'audio/wav', data: toBase64(wav) } },
       ])
+      if (closed) return
+      quotaStrikes = 0
       const j = JSON.parse(res.response.text())
       if (j.transcript) {
         ev.onTranscript(j.transcript + ' ', true)
@@ -178,18 +197,35 @@ export function startChunkEngine(ev: EngineEvents, windowMs = 8000): Engine {
       if (j.level && j.level !== 'calm') ev.onAlert(normalizeAlert(j))
       else ev.onAlert({ level: 'calm', scam_type: 'none', signals: [], whisper_en: '', whisper_hi: '' })
     } catch (e) {
-      if (!closed) ev.onError(e as Error)
-    } finally {
-      busy = false
+      if (closed) return
+      if (isRetryable(e)) {
+        // keep the audio (up to ~30 s) so nothing the caller said is lost, and switch model for the next slice
+        const kept = [...chunks, ...buf]
+        let keptBytes = kept.reduce((n, c) => n + c.byteLength, 0)
+        while (keptBytes > 30 * BYTES_PER_SEC && kept.length) keptBytes -= kept.shift()!.byteLength
+        buf = kept
+        bytes = keptBytes
+        modelIdx = (modelIdx + 1) % models.length
+        quotaStrikes += 1
+        if (quotaStrikes >= models.length) ev.onError(e as Error)
+      } else {
+        ev.onError(e as Error)
+      }
     }
   }
 
   return {
     mode: 'chunk',
     pushPcm: (pcm) => {
+      if (closed) return
       buf.push(pcm)
       bytes += pcm.byteLength
       void flush()
+    },
+    finish: async () => {
+      if (inflight) await inflight
+      // the tail of the call is often the payment / OTP demand: analyse anything over ~1 s
+      await flush(BYTES_PER_SEC)
     },
     stop: () => {
       closed = true

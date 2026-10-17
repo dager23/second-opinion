@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react'
 import { useApp } from '../ctx'
 import { firebaseConfigured } from '../firebase'
-import { followUp, MAX_FILE_BYTES, runScamCheck, type Verdict } from '../check/scamCheck'
+import { followUp, MAX_FILE_BYTES, MAX_TOTAL_BYTES, mimeOf, runScamCheck, type Verdict } from '../check/scamCheck'
+import { friendlyError } from '../errors'
 import { SCAM_LABEL, advisoryFor, helplines } from '../shared'
 
 const SAMPLES = [
@@ -44,19 +45,28 @@ export default function Check() {
   const dropRef = useRef<HTMLLabelElement>(null)
 
   function addFiles(list: FileList | File[]) {
-    const ok: File[] = []
+    setErr('')
+    const next = [...files]
     for (const f of Array.from(list)) {
-      if (!/^(image|audio)\//.test(f.type)) {
-        setErr(`${f.name}: only images and audio files are supported.`)
+      if (!/^(image|audio)\//.test(mimeOf(f))) {
+        setErr(`${f.name}: only images (screenshots) and audio files (voice notes, recordings) are supported.`)
         continue
       }
       if (f.size > MAX_FILE_BYTES) {
         setErr(`${f.name}: file is too large (max 12 MB).`)
         continue
       }
-      ok.push(f)
+      if (next.length >= 5) {
+        setErr('Up to 5 files at a time.')
+        break
+      }
+      if (next.reduce((n, x) => n + x.size, 0) + f.size > MAX_TOTAL_BYTES) {
+        setErr('Files are too large together (max ~14 MB in one check). Remove one and try again.')
+        continue
+      }
+      next.push(f)
     }
-    setFiles((o) => [...o, ...ok].slice(0, 5))
+    setFiles(next)
   }
 
   async function analyse() {
@@ -67,7 +77,7 @@ export default function Check() {
     try {
       setV(await runScamCheck({ text, files, profile, simple, lang }))
     } catch (e) {
-      setErr(`Could not analyse: ${(e as Error).message}`)
+      setErr(`Could not analyse: ${friendlyError(e)}`)
     } finally {
       setBusy(false)
     }
@@ -83,7 +93,7 @@ export default function Check() {
       const a = await followUp(v, chat, question, lang)
       setChat((c) => [...c, { role: 'model', text: a }])
     } catch (e) {
-      setChat((c) => [...c, { role: 'model', text: `Sorry, something went wrong: ${(e as Error).message}` }])
+      setChat((c) => [...c, { role: 'model', text: `Sorry, something went wrong: ${friendlyError(e)}` }])
     } finally {
       setAsking(false)
     }
@@ -128,13 +138,13 @@ export default function Check() {
         >
           <span className="font-semibold">📎 Drop screenshots or audio here, or click to choose</span>
           <span className="text-xs text-ink/70">Images and audio (voice notes, call recordings), up to 5 files, 12 MB each</span>
-          <input type="file" accept="image/*,audio/*" multiple className="sr-only" onChange={(e) => e.target.files && addFiles(e.target.files)} />
+          <input type="file" accept="image/*,audio/*,.opus,.ogg,.m4a,.aac,.amr" multiple className="sr-only" onChange={(e) => e.target.files && addFiles(e.target.files)} />
         </label>
         {files.length > 0 && (
           <ul className="flex flex-wrap gap-2 text-sm">
             {files.map((f, i) => (
               <li key={i} className="chip">
-                {f.type.startsWith('audio') ? '🎧' : '🖼️'} {f.name}{' '}
+                {mimeOf(f).startsWith('audio') ? '🎧' : '🖼️'} {f.name}{' '}
                 <button aria-label={`Remove ${f.name}`} onClick={() => setFiles((o) => o.filter((_, j) => j !== i))}>
                   ×
                 </button>

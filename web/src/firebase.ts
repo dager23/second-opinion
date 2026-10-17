@@ -49,6 +49,9 @@ export const MODELS = {
   live: env.VITE_MODEL_LIVE || 'gemini-3.8-live',
   flash: env.VITE_MODEL_FLASH || 'gemini-3.8-flash',
   lite: env.VITE_MODEL_LITE || 'gemini-3.5-flash-lite',
+  // separate per-model free-tier quotas: used to spread load and as fallbacks on HTTP 429
+  flashAlt: env.VITE_MODEL_FLASH_ALT || 'gemini-3.6-flash',
+  liteAlt: env.VITE_MODEL_LITE_ALT || 'gemini-3.5-flash',
 }
 
 let userPromise: Promise<User> | null = null

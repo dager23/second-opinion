@@ -15,6 +15,11 @@ from common import MODEL_LITE, ROOT, calls, load_key, shared
 
 RANK = {"calm": 0, "caution": 1, "warning": 2, "stop": 3}
 WORDS_PER_SEC = 2.4  # rough speaking rate used to estimate timing of each turn
+JA_CHARS_PER_SEC = 7.0  # Japanese has no spaces: estimate from characters instead
+
+
+def speak_seconds(text, lang):
+    return len(text) / JA_CHARS_PER_SEC if lang == "ja" else len(text.split()) / WORDS_PER_SEC
 
 
 def classify(client, model, prompt, summary, text):
@@ -59,7 +64,7 @@ def main():
         peak = "calm"
         first = None
         for turn in c["turns"]:
-            t += len(turn["t"].split()) / WORDS_PER_SEC
+            t += speak_seconds(turn["t"], c["lang"])
             if turn["s"] != "caller":
                 summary += f" USER: {turn['t']}"
                 continue
@@ -102,7 +107,7 @@ def main():
         "|---|---|---|---|",
     ]
     md += [f"| {r['id']} | {r['kind']} | {r['level']} | {r['first_warning_s'] if r['first_warning_s'] is not None else '—'} |" for r in rows]
-    md += ["", "Timing is estimated from word counts at ~2.4 words/s. Scripted calls, indicative only."]
+    md += ["", "Timing is estimated from word counts at ~2.4 words/s (Japanese: ~7 characters/s). Scripted calls, indicative only."]
     (ROOT / "eval" / "results.md").write_text("\n".join(md), encoding="utf8")
     print(f"\nDetection {det:.0%} | false alarms {fa:.0%} | median first warning {med}s")
 

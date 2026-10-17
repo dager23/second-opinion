@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Level } from './shared'
 import { helplines } from './shared'
 import type { Report } from './store'
@@ -24,6 +25,7 @@ export function RiskMeter({ level }: { level: Level }) {
 }
 
 export function ReportView({ r }: { r: Report }) {
+  const [copied, setCopied] = useState(false)
   const text = [
     `Complaint draft for ${helplines.IN.name} ${helplines.IN.phone} / ${helplines.IN.web}`,
     `Category: ${r.category}`,
@@ -35,12 +37,20 @@ export function ReportView({ r }: { r: Report }) {
     `Actions taken: ${r.actions_taken.join('; ') || '—'}`,
   ].join('\n\n')
   return (
-    <section aria-label="Complaint draft" className="card p-4 print:border-0">
+    <section aria-label="Complaint draft" className="card print-area p-4">
       <div className="flex items-center justify-between gap-2">
         <h3 className="text-lg font-bold">Complaint draft (1930 / cybercrime.gov.in)</h3>
         <div className="flex gap-2 print:hidden">
-          <button className="btn btn-ghost" onClick={() => navigator.clipboard.writeText(text)}>
-            Copy
+          <button
+            className="btn btn-ghost"
+            onClick={() =>
+              navigator.clipboard.writeText(text).then(() => {
+                setCopied(true)
+                window.setTimeout(() => setCopied(false), 1500)
+              })
+            }
+          >
+            {copied ? 'Copied ✓' : 'Copy'}
           </button>
           <button className="btn btn-ghost" onClick={() => window.print()}>
             Print / PDF

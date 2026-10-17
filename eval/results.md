@@ -14,8 +14,8 @@
 | tax-refund | scam | stop | 22 |
 | investment-guaranteed | scam | stop | 24 |
 | courier-customs | scam | stop | 8 |
-| jp-fake-police | scam | stop | 0 |
-| jp-oreore | scam | stop | 0 |
+| jp-fake-police | scam | stop | 6 |
+| jp-oreore | scam | stop | 5 |
 | genuine-bank-callback | genuine | calm | — |
 | genuine-doctor | genuine | calm | — |
 | genuine-grandson | genuine | calm | — |
@@ -23,4 +23,4 @@
 | genuine-insurance-renewal | genuine | calm | — |
 | genuine-electricity | genuine | calm | — |
 
-Timing is estimated from word counts at ~2.4 words/s. Scripted calls, indicative only.
+Timing is estimated from word counts at ~2.4 words/s (Japanese: ~7 characters/s). Scripted calls, indicative only.

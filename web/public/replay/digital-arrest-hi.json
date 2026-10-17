@@ -26,6 +26,15 @@
   }
  },
  {
+  "t": 6179,
+  "type": "step",
+  "final": true,
+  "step": {
+   "tool": "alert_guardian",
+   "detail": "Guardian’s phone alerted with a live summary"
+  }
+ },
+ {
   "t": 6479,
   "type": "step",
   "step": {
@@ -38,21 +47,13 @@
   "type": "step",
   "step": {
    "tool": "notify_guardian",
-   "detail": "A caller falsely claiming to be a CBI officer contacted Sushila. No personal details or money have been shared, so please stay calm and do not answer further calls from this number."
+   "detail": "A caller falsely claiming to be a CBI officer told Sushila she is under digital arrest and asked for a transfer. Please call her now."
   }
  },
  {
   "t": 7919,
   "type": "transcript",
   "text": "Caller: आपके आधार नंबर से एक पार्सल पकड़ा गया है जिसमें ड्रग्स मिले हैं। आपके नाम पर मनी लॉन्ड्रिंग का केस दर्ज हुआ है।\n"
- },
- {
-  "t": 8279,
-  "type": "step",
-  "step": {
-   "tool": "request_cooloff_hold",
-   "detail": "Caller requested a money transfer / OTP"
-  }
  },
  {
   "t": 9479,
@@ -126,5 +127,41 @@
   "t": 32668,
   "type": "transcript",
   "text": "Caller: डरिए मत, सहयोग कीजिए। अपना पैसा साफ साबित करने के लिए आरबीआई के सत्यापन खाते में दो लाख रुपये ट्रांसफर कीजिए। जाँच के बाद वापस मिल जाएँगे। अभी अपना बैंकिंग ऐप खोलिए और जो ओटीपी आए वह बताइए।\n"
+ },
+ {
+  "t": 46407,
+  "type": "report",
+  "final": true,
+  "report": {
+   "category": "Digital arrest / CBI impersonation",
+   "summary": "The victim received a fraudulent call from an individual impersonating a CBI officer who claimed a parcel with drugs was registered under her Aadhaar. The caller placed her under a fake 'digital arrest' and threatened immediate police arrival if she disconnected or informed family. She was ordered to transfer two lakh rupees to a purported RBI verification account and share her OTP.",
+   "caller_claims": "The caller claimed to be CBI Officer Rakesh Sharma, alleging that a parcel containing drugs was intercepted under the victim's Aadhaar number and that a money laundering case was registered against her.",
+   "timeline": [
+    "Caller contacted the victim identifying himself as CBI Officer Rakesh Sharma.",
+    "Caller claimed a parcel containing drugs was linked to her Aadhaar and that a money laundering case was filed.",
+    "Caller stated the victim was placed under 'digital arrest' and threatened that police would reach her home if she hung up or alerted her son.",
+    "Caller demanded that the victim transfer two lakh rupees to an 'RBI verification account' and disclose banking OTPs to verify her funds."
+   ],
+   "quotes": [
+    "नमस्ते, मैं सीबीआई अधिकारी राकेश शर्मा बोल रहा हूँ।",
+    "आपके आधार नंबर से एक पार्सल पकड़ा गया है जिसमें ड्रग्स मिले हैं। आपके नाम पर मनी लॉन्ड्रिंग का केस दर्ज हुआ है।",
+    "आप अभी से डिजिटल अरेस्ट में हैं।",
+    "वीडियो कॉल पर बनी रहिए और किसी को भी, अपने बेटे को भी, कुछ मत बताइए। कॉल काटी तो पुलिस आपके घर पहुँच जाएगी।",
+    "अपना पैसा साफ साबित करने के लिए आरबीआई के सत्यापन खाते में दो लाख रुपये ट्रांसफर कीजिए।"
+   ],
+   "money_requested": "₹2,00,000 (two lakh rupees) via transfer to an alleged RBI verification account, along with banking OTP",
+   "actions_taken": [
+    "Guardian alerted"
+   ]
+  }
+ },
+ {
+  "t": 46507,
+  "type": "step",
+  "final": true,
+  "step": {
+   "tool": "draft_report",
+   "detail": "Final complaint draft written from the full call"
+  }
  }
 ]

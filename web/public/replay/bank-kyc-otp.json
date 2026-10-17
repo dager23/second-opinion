@@ -30,6 +30,15 @@
   }
  },
  {
+  "t": 7961,
+  "type": "step",
+  "final": true,
+  "step": {
+   "tool": "alert_guardian",
+   "detail": "Guardian’s phone alerted with a live summary"
+  }
+ },
+ {
   "t": 8261,
   "type": "step",
   "step": {
@@ -42,21 +51,13 @@
   "type": "step",
   "step": {
    "tool": "notify_guardian",
-   "detail": "A caller falsely claiming to be from the State Bank head office stated the bank account would be blocked within two hours due to expired KYC. No financial transactions or sensitive details were shared."
+   "detail": "A caller falsely claiming to be from the State Bank head office stated the bank account would be blocked within two hours due to expired KYC. Please call them now."
   }
  },
  {
   "t": 9415,
   "type": "transcript",
   "text": "Caller: Yes sir, to avoid blocking you must update KYC right now. I am sending you a link. Please install the app called QuickSupport so I can help you on your screen.\n"
- },
- {
-  "t": 10061,
-  "type": "step",
-  "step": {
-   "tool": "request_cooloff_hold",
-   "detail": "Caller requested a money transfer / OTP"
-  }
  },
  {
   "t": 11261,
@@ -118,8 +119,54 @@
   }
  },
  {
+  "t": 19537,
+  "type": "step",
+  "final": true,
+  "step": {
+   "tool": "request_cooloff_hold",
+   "detail": "Caller asked for money / an OTP: “update KYC right now”"
+  }
+ },
+ {
   "t": 20008,
   "type": "transcript",
   "text": "Caller: Thank you. Now you will receive an OTP on your phone. Please read it to me immediately, and also tell me your card number and PIN to verify.\n"
+ },
+ {
+  "t": 29447,
+  "type": "report",
+  "final": true,
+  "report": {
+   "category": "Bank KYC / Remote access scam",
+   "summary": "The complainant received a call from an individual claiming to represent the State Bank head office, warning that their pension account would be blocked within two hours due to expired KYC. The caller instructed the victim to install the QuickSupport remote access app to update KYC immediately. The caller subsequently demanded the victim share an incoming OTP, card number, and PIN.",
+   "caller_claims": "The caller claimed to be from State Bank head office and alleged that the victim's KYC had expired and the account would be blocked in two hours.",
+   "timeline": [
+    "Caller contacted the victim claiming to represent State Bank head office regarding an expired KYC.",
+    "Caller warned the account would be blocked in two hours unless KYC was updated immediately.",
+    "Caller directed the victim to install the QuickSupport remote access app via a sent link.",
+    "Victim proceeded to install the application.",
+    "Caller asked the victim to immediately provide an incoming OTP, debit/credit card number, and PIN."
+   ],
+   "quotes": [
+    "I am calling from State Bank head office. Your KYC has expired and your account will be blocked in two hours.",
+    "to avoid blocking you must update KYC right now.",
+    "Please install the app called QuickSupport so I can help you on your screen.",
+    "Now you will receive an OTP on your phone. Please read it to me immediately, and also tell me your card number and PIN to verify."
+   ],
+   "money_requested": "none stated",
+   "actions_taken": [
+    "Guardian alerted",
+    "Cool-off hold requested (awaiting guardian approval)"
+   ]
+  }
+ },
+ {
+  "t": 29547,
+  "type": "step",
+  "final": true,
+  "step": {
+   "tool": "draft_report",
+   "detail": "Final complaint draft written from the full call"
+  }
  }
 ]

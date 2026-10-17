@@ -45,6 +45,8 @@ Everything runs on the **Firebase free (Spark) plan**: Hosting, Anonymous Auth, 
 Chunked audio analysis with Gemini Flash-Lite (default) and the Live API as an optional beta (streaming audio, tool calling, context-window compression) · function calling (Case Agent) · structured JSON output (verdicts, frame cues, chunk classifier) · multimodal input (images, audio) · multi-speaker TTS (demo calls and whispers, rendered offline) · system-instruction prompt library shared between the app and the evaluation harness.
 
 ### Trust & safety
+- **Safety actions don't wait for an LLM:** the guardian is alerted the moment a call reaches Warning, and the cool-off hold is requested as soon as a money / OTP / remote-access request is heard. The Gemini case agent adds the advisory, a plain-language summary and the complaint draft; a final draft is written from the full call when it ends.
+- **Resilient on the free tier:** every Gemini call has a timeout and falls back to another model (3.8/3.6 Flash, 3.5 Flash/Flash-Lite) on rate limits; audio slices are kept, not dropped, when a request is throttled.
 - Every signal is shown with the **exact quote** that triggered it.
 - Advice comes from a curated **official-advisory library** with links (I4C, RBI, Sanchar Saathi), not from the model's memory.
 - The guardian **approves** any hold; nothing is filed automatically.
@@ -65,7 +67,7 @@ npm install
 npm run dev
 ```
 
-Firebase setup (free Spark plan): create/open the project, add a Web app, enable **Authentication → Anonymous**, **Firestore**, **AI Logic → Gemini Developer API**, and App Check (reCAPTCHA v3). Then:
+Firebase setup (free Spark plan): create/open the project, add a Web app, enable **Authentication → Anonymous**, **Firestore**, **AI Logic → Gemini Developer API**, and App Check with a **reCAPTCHA Enterprise** website key (put its ID in `VITE_RECAPTCHA_ENTERPRISE_KEY`; for local dev register a debug token and put it in `web/.env.development.local` as `VITE_APPCHECK_DEBUG_TOKEN`, which is never bundled into production builds). Then:
 
 ```bash
 firebase deploy --only firestore:rules,hosting
