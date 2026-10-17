@@ -1,1 +1,18 @@
 digital-arrest-en            scam     peak=stop     first_warning=24
+digital-arrest-hi            scam     peak=stop     first_warning=20
+digital-arrest-hinglish      scam     peak=stop     first_warning=10
+bank-kyc-otp                 scam     peak=stop     first_warning=10
+relative-in-trouble          scam     peak=stop     first_warning=8
+tax-refund                   scam     peak=stop     first_warning=22
+investment-guaranteed        scam     peak=stop     first_warning=24
+courier-customs              scam     peak=stop     first_warning=8
+jp-fake-police               scam     peak=stop     first_warning=0
+jp-oreore                    scam     peak=stop     first_warning=0
+genuine-bank-callback        genuine  peak=calm     first_warning=None
+genuine-doctor               genuine  peak=calm     first_warning=None
+genuine-grandson             genuine  peak=calm     first_warning=None
+genuine-delivery             genuine  peak=calm     first_warning=None
+genuine-insurance-renewal    genuine  peak=calm     first_warning=None
+genuine-electricity          genuine  peak=calm     first_warning=None
+
+Detection 100% | false alarms 0% | median first warning 10.0s
