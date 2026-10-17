@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:1500px;height:600px;background:#fff;font-family:'Segoe UI',Arial,sans-serif;color:#14213d}
+.col{display:flex;gap:22px;padding:24px 28px}
+.lane{flex:1;border-radius:18px;padding:14px 16px;border:2px solid #ccc}
+.lane h3{margin:0 0 12px;font-size:25px}
+.node{border-radius:12px;padding:10px 12px;margin-bottom:10px;font-size:21px;line-height:1.25;color:#fff}
+.u{background:#14213d}.f{background:#e8710a}.gm{background:#1a73e8}.s{background:#1f7a4d}
+.node small{display:block;opacity:.9;font-size:17px;margin-top:3px}
+.foot{padding:0 28px;font-size:19px;color:#444}
+</style></head><body>
+<div class="col">
+ <div class="lane" style="border-color:#14213d"><h3>Browser (React + Vite + TypeScript)</h3>
+  <div class="node u">Call Guard UI<small>mic / Meet tab / demo call, AudioWorklet 16 kHz PCM</small></div>
+  <div class="node u">Scam Check UI<small>screenshots, audio, text, questions</small></div>
+  <div class="node u">Guardian console<small>family phone: alerts + approve hold</small></div>
+  <div class="node u">Impact / Roadmap / About<small>sourced stats, avoidable-loss calculator</small></div>
+ </div>
+ <div class="lane" style="border-color:#1a73e8"><h3>Gemini via Firebase AI Logic</h3>
+  <div class="node gm">gemini-3.8-flash<small>case agent (function calling), Scam Check, Frame Check, structured JSON</small></div>
+  <div class="node gm">gemini-3.5-flash-lite<small>8 s audio slices: transcript + signals + quotes</small></div>
+  <div class="node gm">gemini-3.8-live (beta)<small>optional realtime streaming mode</small></div>
+  <div class="node gm">Gemini TTS<small>demo calls + whisper clips (rendered offline)</small></div>
+ </div>
+ <div class="lane" style="border-color:#e8710a"><h3>Firebase (Spark plan)</h3>
+  <div class="node f">Firebase Hosting<small>global CDN, HTTPS</small></div>
+  <div class="node f">Cloud Firestore<small>sessions, alerts, hold status, report (signals + quotes only, no audio)</small></div>
+  <div class="node f">Anonymous Auth<small>no login wall; random pairing code</small></div>
+  <div class="node f">App Check (reCAPTCHA Enterprise)<small>protects Gemini + Firestore</small></div>
+ </div>
+ <div class="lane" style="border-color:#1f7a4d"><h3>Trust &amp; scale</h3>
+  <div class="node s">Official-advisory library<small>I4C, RBI, Sanchar Saathi, with links</small></div>
+  <div class="node s">Evaluation harness<small>16 scripted calls, scam + genuine</small></div>
+  <div class="node s">Scale path: Cloud Run + ADK<small>server-side multi-agent case handling, bank/telco APIs</small></div>
+ </div>
+</div>
+<div class="foot">Data flow: browser audio/images &rarr; Firebase AI Logic (App Check verified) &rarr; Gemini &rarr; structured alerts &rarr; Firestore &rarr; guardian phone. Rules: only the session owner writes; a guardian may change only the hold status.</div>
+</body></html>

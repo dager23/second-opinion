@@ -1,4 +1,4 @@
-# Demo video script (target 2:45, under 3:00). Team narrates in their own voices.
+# Demo video script (target 3:15; the rules ask for 3-4 minutes, so stay under 4:00). Team narrates in their own voices.
 
 **Setup before recording:** deployed URL open on the elder's laptop (Chrome), Google Meet on a second device with the "officer" in a uniform/police-style backdrop, guardian phone showing `/guardian`.
 
@@ -14,3 +14,6 @@
 | 2:48-2:55 | URL card | Live URL and GitHub repo. |
 
 **Recording tips:** 1080p; mute notifications; do one dry run; keep the Meet audio clearly audible; keep the final cut under 3:00 (some events ignore longer videos).
+
+
+**Prototype-only shortcut (no Meet / second phone needed):** record the screen on the live site: (1) Call Guard > pick *Digital arrest (English)* > Play live, narrate the signals and STOP; (2) show the guardian view (`/guardian/CODE` in a second tab) and approve the hold; (3) Genuine bank callback stays Calm; (4) Scam Check: Task job chat sample, then upload a screenshot; switch to Teen and run the sextortion sample; (5) Impact page calculator; (6) show the architecture slide. If Play live is slow, use Replay (labelled as a recorded session) and say so.
