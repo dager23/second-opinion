@@ -31,7 +31,7 @@ Live URL: `https://<project-id>.web.app`
 ## D. Submission package
 - [ ] Live URL works logged out, in incognito, on a phone
 - [ ] Public GitHub repo: `git remote add origin ... && git push -u origin main` (check `git ls-files | grep env` shows nothing)
-- [ ] Deck PDF: `python tools/build_deck.py --app-url <url> --repo-url <repo> --team "<names>"` → `docs/deck/Second-Opinion-Deck.pdf`
+- [ ] Deck PDF: `
 - [ ] Demo video under 3:00 (see `docs/video-script.md`), public on YouTube/Vimeo/Drive
 - [ ] Category: Social Good (theme: Sustainability & Social Impact)
 - [ ] Submit on the Hack2skill dashboard before the deadline (18 Oct, timezone not stated: submit early)

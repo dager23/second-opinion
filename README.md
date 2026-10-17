@@ -26,8 +26,8 @@ Sources and the avoidable-loss calculator are on the in-app **Impact** page (`sh
 flowchart LR
   A[Speakerphone mic / Google Meet tab / demo call] --> B[AudioWorklet 16 kHz PCM]
   B --> C{Call Guard}
-  C -->|primary| D[Gemini Live gemini-3.8-live via Firebase AI Logic]
-  C -->|fallback| E[Chunked audio -> Gemini Flash-Lite]
+  C -->|default| E[8 s audio slices -> Gemini Flash-Lite]
+  C -->|optional beta| D[Gemini Live gemini-3.8-live via Firebase AI Logic]
   D --> F[raise_alert tool call: signals + quotes + whisper]
   E --> F
   A -->|video frame every 15 s| G[Frame Check, gemini-3.8-flash vision]
@@ -42,7 +42,7 @@ flowchart LR
 Everything runs on the **Firebase free (Spark) plan**: Hosting, Anonymous Auth, Firestore, App Check, and Gemini through **Firebase AI Logic**. There is no server: the browser talks to Gemini through Firebase AI Logic (App Check protected).
 
 ### Gemini features used
-Live API (streaming audio, input transcription, tool calling, context-window compression) · function calling (Case Agent) · structured JSON output (verdicts, frame cues, chunk classifier) · multimodal input (images, audio) · multi-speaker TTS (demo calls and whispers, rendered offline) · system-instruction prompt library shared between the app and the evaluation harness.
+Chunked audio analysis with Gemini Flash-Lite (default) and the Live API as an optional beta (streaming audio, tool calling, context-window compression) · function calling (Case Agent) · structured JSON output (verdicts, frame cues, chunk classifier) · multimodal input (images, audio) · multi-speaker TTS (demo calls and whispers, rendered offline) · system-instruction prompt library shared between the app and the evaluation harness.
 
 ### Trust & safety
 - Every signal is shown with the **exact quote** that triggered it.

@@ -33,9 +33,8 @@ export default function About() {
         <ol className="list-decimal space-y-1 pl-5">
           <li>Call audio (speakerphone, a shared Google Meet tab, or a demo call) is streamed from the browser as 16 kHz audio.</li>
           <li>
-            <b>Gemini Live</b> (<code>gemini-3.8-live</code> via Firebase AI Logic) listens and transcribes. It reasons about the <i>coercion state</i> of the
-            conversation and calls a <code>raise_alert</code> tool with the signals it heard and the exact quotes. If Live is unavailable the app falls back to
-            chunked analysis with Gemini Flash.
+            <b>Gemini</b> (via Firebase AI Logic) transcribes 8-second audio slices and reasons about the <i>coercion state</i> of the conversation, returning the signals it heard
+            with the exact quotes. An optional beta mode streams the call through <code>gemini-3.8-live</code> and a <code>raise_alert</code> tool call.
           </li>
           <li>On a warning, a <b>Case Agent</b> (Gemini Flash with function calling) checks a curated official-advisory library, alerts the guardian, requests a cool-off hold and drafts the cybercrime complaint.</li>
           <li>For Google Meet, a periodic video frame is checked for staged-authority visual cues (uniform, fake warrant). These are cues, never a deepfake verdict.</li>
