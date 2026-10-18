@@ -391,7 +391,7 @@ export function useGuard(profile: Profile, lang: Lang, preferLive = false) {
       if (!item.replay) return
       await begin('replay')
       modeRef.current = 'replay'
-      patch({ engine: 'replay', status: 'Recorded session (no live model calls)' })
+      patch({ engine: 'replay', status: 'Recorded session' })
       try {
         const evs = (await (await fetch(item.replay)).json()) as ReplayEvent[]
         const cap = await startDemo(item.audio)

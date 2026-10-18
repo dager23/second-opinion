@@ -85,7 +85,7 @@ export default function Guard() {
               </button>
             </div>
             <p className="text-xs text-ink/70">
-              <b>Analyse live</b> sends the demo call to Gemini in real time. <b>Recorded replay</b> plays a saved run with no model calls.
+              <b>Analyse live</b> sends the demo call to Gemini in real time.
             </p>
             <label className="flex items-center gap-2 text-xs text-ink/80">
               <input type="checkbox" checked={live} disabled={!idle} onChange={(e) => setLive(e.target.checked)} />
