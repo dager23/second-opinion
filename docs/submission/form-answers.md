@@ -8,7 +8,7 @@
 
 **Pitch deck PDF (filled official template, 1.5 MB):** `docs/submission/Victoris-Second-Opinion-Submission.pdf`
 
-**Demo video (3-4 min):** add after upload (public YouTube / Drive link)
+**Demo video (3-4 min):** https://drive.google.com/file/d/1D-IQgBF9WVEWGHinmJoNLaRQkHzXMmcA/view?usp=sharing
 
 ## Brief description (paste this)
 

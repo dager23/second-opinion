@@ -114,5 +114,5 @@ Costs fall further with on-device Gemma 4 for first-line detection and server ca
 
 ## Provide links to your:
 - GitHub Public Repository: https://github.com/dager23/second-opinion
-- Demo Video Link: (add demo video link)
+- Demo Video Link: https://drive.google.com/file/d/1D-IQgBF9WVEWGHinmJoNLaRQkHzXMmcA/view?usp=sharing
 - Final Product Link: https://gen-lang-client-0095149296.web.app

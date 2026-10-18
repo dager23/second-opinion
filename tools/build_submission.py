@@ -271,8 +271,11 @@ def main():
     # ---- Page 14: links placed on the same line as the template's own labels
     p = P(14)
     links = [(111, REPO_URL), (128, a.video_url), (145, APP_URL)]
+    link_font = pymupdf.Font(fontfile=str(FONTS / "segoeui.ttf"))
     for y, url in links:
-        p.insert_text((262, y), url, fontsize=13, color=(0.05, 0.25, 0.75), **font_args())
+        # long links (e.g. Google Drive) shrink to fit the line instead of running off the slide
+        size = min(13.0, (700 - 262) / max(1.0, link_font.text_length(url, fontsize=1)))
+        p.insert_text((262, y), url, fontsize=size, color=(0.05, 0.25, 0.75), **font_args())
         if url.startswith("http"):
             p.insert_link({"kind": pymupdf.LINK_URI, "from": pymupdf.Rect(262, y - 13, 700, y + 3), "uri": url})
 
