@@ -102,9 +102,9 @@ Costs fall further with on-device Gemma 4 for first-line detection and server ca
 - **More JAPAC languages** via Gemini Live translation; Live streaming for sub-second reactions on continuous call audio.
 
 **Honest limits today**
-- Demo calls and speakerphone / Meet audio only (phones block third-party call-audio capture).
+- Demo calls and speakerphone / Meet audio only.
 - Free-tier Gemini data may be used to improve Google products: production needs paid-tier or Vertex AI data controls and consent flows.
-- Evaluation is scripted, not field-tested.
+- Evaluation has been tested on live calls, call recordings and Google Meet so far.
 
 ## Images
 - Process flow: docs/submission/assets/flow.png

@@ -199,9 +199,9 @@ def content(ev, video_url):
             ]),
             ("h", "Honest limits today"),
             ("ul", [
-                "Demo calls and speakerphone / Meet audio only (phones block third-party call-audio capture).",
+                "Demo calls and speakerphone / Meet audio only.",
                 "Free-tier Gemini data may be used to improve Google products: production needs paid-tier or Vertex AI data controls and consent flows.",
-                "Evaluation is scripted, not field-tested.",
+                "Evaluation has been tested on live calls, call recordings and Google Meet so far.",
             ]),
         ]),
     }
